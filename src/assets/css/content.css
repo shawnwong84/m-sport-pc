@@ -1,0 +1,433 @@
+html,
+body {
+    width: 100%;
+    min-width: 1200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+@media only screen and (min-width: 1200px) {
+    html,
+    body {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+    }
+}
+div {
+    box-sizing: border-box;
+}
+.fx {
+    display: flex;
+}
+.align-items {
+    align-items: center;
+}
+.justify-center {
+    justify-content: center;
+}
+.justify-between {
+    justify-content: space-between;
+}
+.flex-wrap {
+    flex-wrap: wrap;
+}
+.fx-end {
+    justify-content: flex-end;
+}
+
+.bg-white {
+    background: rgb(255, 255, 255);
+}
+.bg-gary {
+    background: rgb(250, 250, 250);
+}
+.ta-c {
+    text-align: center;
+}
+.ta-r {
+    text-align: right;
+}
+.ta-l {
+    text-align: left;
+}
+
+.mt-2 {
+    margin-top: 2px;
+}
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+.mt-5 {
+    margin-top: 5px;
+}
+.mt-15 {
+    margin-top: 15px;
+}
+.mt-20 {
+    margin-top: 20px;
+}
+.mt-24 {
+    margin-top: 24px;
+}
+.mt-30 {
+    margin-top: 30px;
+}
+.ml-10 {
+    margin-left: 10px;
+}
+.ml-15 {
+    margin-left: 15px;
+}
+.ml-60 {
+    margin-left: 60px;
+}
+.ml-20 {
+    margin-left: 20px;
+}
+.ml-25 {
+    margin-left: 25px;
+}
+.ml-30 {
+    margin-left: 30px;
+}
+.mr-30 {
+    margin-right: 30px;
+}
+.ml-5 {
+    margin-left: 5px;
+}
+.mr-15 {
+    margin-right: 15px;
+}
+.mr-10 {
+    margin-right: 10px;
+}
+.mr-5 {
+    margin-right: 5px;
+}
+.mr-20 {
+    margin-right: 20px;
+}
+.mb-15 {
+    margin-bottom: 15px;
+}
+.mb-10 {
+    margin-bottom: 10px;
+}
+.mb-20 {
+    margin-bottom: 20px;
+}
+.pt-5 {
+    padding-top: 5px;
+}
+.pt-10 {
+    padding-top: 10px;
+}
+.pt-15 {
+    padding-top: 15px;
+}
+.pt-20 {
+    padding-top: 20px;
+}
+.pb-20 {
+    padding-bottom: 20px;
+}
+.pb-5 {
+    padding-bottom: 5px;
+}
+.pb-10 {
+    padding-bottom: 10px;
+}
+.pl-20 {
+    padding-left: 20px;
+}
+.pl-10 {
+    padding-left: 10px;
+}
+.line-height {
+    line-height: 45px;
+}
+.fs-12 {
+    font-size: 12px;
+}
+.fs-13 {
+    font-size: 13px;
+}
+.fs-14 {
+    font-size: 14px;
+}
+.fs-15 {
+    font-size: 15px;
+}
+.fs-20 {
+    font-size: 20px;
+}
+.fs-36 {
+    font-size: 36px;
+}
+.fs-24 {
+    font-size: 24px;
+}
+.fs-22 {
+    font-size: 22px;
+}
+.fs-18 {
+    font-size: 18px;
+}
+.fs-42 {
+    font-size: 42px;
+}
+.c-9 {
+    color: #9fa9ba;
+}
+.c-7 {
+    color: #777;
+}
+.c-primary {
+    color: #f8413d;
+}
+.c-ff {
+    color: #ffffff;
+}
+.c-3 {
+    color: #333333;
+}
+.fw-600 {
+    font-weight: 600;
+}
+.fw-700 {
+    font-weight: 700;
+}
+.padding-32 {
+    padding: 32px;
+}
+.bd-bottom {
+    border-bottom: 1px solid #d8d8d8;
+}
+.fs-16 {
+    font-size: 16px;
+}
+.fs-26 {
+    font-size: 26px;
+}
+.w-32 {
+    width: 32px;
+}
+.bg-f2 {
+    background: #f2f4fc;
+}
+.bg-00 {
+    background: #005cdb;
+}
+.c-33 {
+    color: #333333;
+}
+.c-green {
+    color: #00c462;
+}
+.c-red {
+    color: #d12f2f;
+}
+.cursor {
+    cursor: pointer;
+}
+img {
+    cursor: pointer;
+    vertical-align: middle;
+}
+.c-0 {
+    color: #000000;
+}
+.matchCutImg {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.padding-10 {
+    padding: 10px;
+}
+.padding-10-5 {
+    padding: 3px 10px;
+}
+.matchCutImg[lazy='loading'] {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.matchCutImg[lazy='loaded'] {
+    width: 100%;
+    height: 100%;
+    /*object-fit: cover;*/
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.matchCutImg .imgvideo {
+    opacity: 0;
+}
+.matchCutImg:hover .imgvideo {
+    opacity: 1;
+    -webkit-transform: scale(2);
+    transform: scale(2);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+}
+/*超过宽度文字显示省略号*/
+.text-overflow {
+    width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.t-overflow {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.bg-size {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.text-teamName {
+    width: 80px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.anchorDesc {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+/*首页底部新加的*/
+.footer-div {
+    color: #f7f7f7;
+    background-color: rgb(42, 42, 52);
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgb(37, 37, 47);
+    cursor: pointer;
+}
+.min-width {
+    min-width: 1200px;
+}
+.footer_bottom {
+    color: #f7f7f7;
+    /* margin-top: 20px; */
+    background-color: rgb(37, 37, 47);
+    padding-bottom: 18px;
+    padding-top: 20px;
+    cursor: pointer;
+}
+.footer_bottom > p {
+    color: #f7f7f7;
+    text-align: center;
+    padding-bottom: 15px;
+}
+.footer_conent {
+    max-width: 1200px;
+    padding-top: 10px;
+    margin: 0px auto;
+    position: relative;
+    display: flex;
+    line-height: 41px;
+    align-items: center;
+}
+.footer_logo {
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+.footer_tb {
+    list-style: none;
+    display: flex;
+    margin: 0px auto;
+}
+.footer_tb li {
+    padding-right: 30px;
+    margin-left: 30px;
+    font-size: 14px;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    cursor: pointer;
+}
+.footer_tb li a {
+    text-decoration: none;
+}
+.footer_tb li:hover {
+    /*text-decoration:underline;*/
+    color: rgb(164, 137, 92);
+}
+.footer_tb li:last-child {
+    border: none;
+}
+.foot_tes {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 12px;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+}
+input {
+    outline: none;
+}
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar {
+    width: 5px; /*滚动条宽度*/
+    height: 5px; /*滚动条高度*/
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px; /*滚动条的背景区域的圆角*/
+    background-color: #f4f4f4; /*滚动条的背景颜色*/
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+    border-radius: 10px; /*滚动条的圆角*/
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #a2a2a2; /*滚动条的背景颜色*/
+}
+
+.prism-player .prism-loading .circle {
+    background-color: rgba(0, 0, 0, 0);
+    border: 5px solid;
+    border-color: rgba(239, 223, 169, 0.9) rgba(255, 202, 0, 0.5)
+        rgba(255, 202, 0, 0.7) rgba(239, 223, 169, 0.1) !important;
+    opacity: 0.9;
+    border-radius: 50px;
+    width: 55px;
+    height: 55px;
+    margin: 0 auto;
+    -moz-animation: spinoffPulse 0.9s infinite linear;
+    -webkit-animation: spinoffPulse 0.9s infinite linear;
+}
