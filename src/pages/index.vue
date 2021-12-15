@@ -191,7 +191,7 @@
             </div>
             <div class="right-box" v-if="isTop === 2 && $route.name !== 'room'">
                 <div class="nav-item download">
-                    <el-popover placement="right"  trigger="hover">
+                    <el-popover placement="right" trigger="hover">
                         <div class="down-qr-box">
                             <vue-qr
                                 text="http://facebook.github.io/react/"
@@ -489,7 +489,6 @@ export default {
     /*bottom: 0;*/
     overflow-x: hidden;
 }
-
 
 .down-qr-box {
     width: 283px;
