@@ -41,7 +41,7 @@ module.exports = {
 		port: 8080,
 		https: false,
 		proxy: {
-			'/api': {
+			'/excuse': {
 				target: VUE_APP_API_URL,
 				changeOrigin: true,
 				logLevel: 'debug',
