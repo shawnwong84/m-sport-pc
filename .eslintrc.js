@@ -16,6 +16,11 @@ module.exports = {
     },
     plugins: ['vue'],
     rules: {
-        
+        // 'no-undef':'off',
+        // 'no-unused-vars' :'off',
+        // 'vue/no-use-v-if-with-v-for' :'off',
+        // 'no-dupe-keys' :'off',
+        // 'vue/require-v-for-key':'off',
+        // 'vue/no-unused-vars':'off'
     },
 };
