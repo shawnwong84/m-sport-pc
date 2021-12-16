@@ -5,24 +5,19 @@
             @dialogVisibleEvent="showDialog"
         ></v-reg-login>
         <div class="content_box" id="searchBar" ref="app">
-            <!--      <div class="userInfo-box" @mouseover="mouseover"-->
-            <!--           @mouseleave="mouseleave" v-if="isshow">-->
-            <!--        <div class="bd-bottom" @click="toPage('my')">个人中心</div>-->
-            <!--        <div @click="loginOut">退出登录</div>-->
-            <!--      </div>-->
             <div class="logo bg-white c-0">
                 <div class="header-box">
                     <div
                         class="fx align-items justify-between"
                         style="width: 100%"
                     >
-                        <div class="fx align-items">
+                        <div class="fx align-items head-nav">
                             <img
                                 src="../assets/image/logo1.png"
                                 @click="toPage('home')"
                                 width="150px"
                             />
-                            <!--            <img src="../assets/image/logo2.png" @click="toPage('home')" v-if="isTop === 2" width="150px"/>-->
+
                             <div
                                 class="li"
                                 @click="toPage('home')"
@@ -36,39 +31,37 @@
                                 :class="$route.name === 'score' ? 'cl' : ''"
                             >
                                 即时比分
-                                <!-- <img
-                                    v-if="$route.name !== 'home'"
-                                    src="../assets/image/xia.png"
-                                    width="6px"
-                                    class="ml-5"
-                                />
-                                <img
-                                    v-if="$route.name === 'home'"
-                                    src="../assets/image/xia2.png"
-                                    width="6px"
-                                    class="ml-5"
-                                /> -->
                             </div>
-                            <!--            @mouseover="mouseOver"-->
-                            <!--            @mouseleave="mouseLeave"-->
-                            <div>
-                                <div
-                                    class="li"
-                                    @click="toPage('all')"
-                                    :class="
-                                        $route.name === 'all' ||
-                                        $route.name === 'room'
-                                            ? 'cl'
-                                            : ''
-                                    "
-                                >
-                                    直播
-                                </div>
-                                <div class="all-box" v-if="showAll">
-                                    <span class="all-div">足球</span>
-                                    <span class="all-div ml-10">篮球</span>
-                                </div>
+
+                            <div
+                                class="li"
+                                @click="toPage('all')"
+                                :class="
+                                    $route.name === 'all' ||
+                                    $route.name === 'room'
+                                        ? 'cl'
+                                        : ''
+                                "
+                            >
+                                <el-popover placement="bottom" trigger="hover">
+                                    <div class="header-live-nav-box">
+                                        <div class="classify-list">
+                                            <div class="classify-item">
+                                                足球
+                                            </div>
+                                            <div class="classify-item">
+                                                篮球
+                                            </div>
+                                        </div>
+                                        <div class="classify-all">查看全部</div>
+                                    </div>
+                                    <div slot="reference">
+                                        <div class="h-popover"></div>
+                                        <span>直播</span>
+                                    </div>
+                                </el-popover>
                             </div>
+
                             <div
                                 class="li"
                                 @click="toPage('schedule')"
@@ -115,14 +108,32 @@
                                 有料
                             </div>
                             <div
-                                :class="$route.name === 'down' ? 'c-ce' : ''"
-                                @click="toPage('down')"
-                                class="cursor"
+                                :class="$route.name === 'down' ? 'cl' : ''"
+                                class="li"
                             >
-                                App下载<img
-                                    src="../assets/image/hot.png"
-                                    class="hot-img"
-                                />
+                                <el-popover placement="bottom" trigger="hover">
+                                    <div class="header-down-qr-box">
+                                        <vue-qr
+                                            text="http://facebook.github.io/react/"
+                                            :size="68"
+                                            :margin="0"
+                                            class="qr-img"
+                                        />
+                                        <span class="down-text">M体育APP</span>
+                                        <el-button
+                                            size="small"
+                                            @click="toPage('down')"
+                                            >立即下载</el-button
+                                        >
+                                    </div>
+                                    <div slot="reference">
+                                        <span
+                                            class="h-popover"
+                                            @click="toPage('down')"
+                                            >APP下载</span
+                                        >
+                                    </div>
+                                </el-popover>
                             </div>
                         </div>
                         <div class="nav-bar-search search-popover-container">
@@ -169,22 +180,75 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="fx align-items" v-if="token">
-                            <div class="ml-20" @click="toPage('my')">
-                                <img
-                                    :src="infoData.avatarUrl"
-                                    class="header-img"
-                                    @mouseover="mouseover"
-                                    @mouseleave="mouseleave"
-                                />
-                            </div>
-                            <div
-                                class="cursor ml-30"
-                                :class="isTop === 1 ? '' : 'yellow'"
-                                @click="loginOut"
-                            >
-                                <span>退出</span>
-                            </div>
+                        <div
+                            class="fx align-items"
+                            v-if="token"
+                            @click="toPage('my')"
+                        >
+                            <el-popover placement="bottom-end" trigger="hover">
+                                <div class="head-userinfo-box">
+                                    <div class="info">
+                                        <div class="user-avatar">
+                                            <img
+                                                :src="infoData.avatarUrl"
+                                                alt=""
+                                            />
+                                        </div>
+                                        <div class="user-name">
+                                            <p class="name">
+                                                用户名：{{ infoData.userName }}
+                                            </p>
+                                            <p class="grade">
+                                                等级：{{ infoData.level }}
+                                            </p>
+                                        </div>
+                                        <div
+                                            class="user-loginout"
+                                            @click="loginOut"
+                                        >
+                                            <img
+                                                src="../assets/image/header/login-out-icon.png"
+                                                alt=""
+                                            />
+                                            <span>退出</span>
+                                        </div>
+                                    </div>
+                                    <el-divider></el-divider>
+                                    <div class="user-nav-list">
+                                        <div class="nav-item" @click="toPage('my')">
+                                            <img
+                                                src="../assets/image/header/user-center-icon.png"
+                                                alt=""
+                                            />
+                                            <span>个人中心</span>
+                                        </div>
+                                        <div class="nav-item">
+                                            <img
+                                                src="../assets/image/header/follow-icon.png"
+                                                alt=""
+                                            />
+                                            <span>我的关注</span>
+                                        </div>
+                                        <div class="nav-item">
+                                            <img
+                                                src="../assets/image/header/message-icon.png"
+                                                alt=""
+                                            />
+                                            <span>我的消息</span>
+                                        </div>
+                                        <div class="nav-item">
+                                            <img
+                                                src="../assets/image/header/video-living-icon.png"
+                                                alt=""
+                                            />
+                                            <span>我要开播</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="header-img" slot="reference">
+                                    <img :src="infoData.avatarUrl" />
+                                </div>
+                            </el-popover>
                         </div>
                     </div>
                 </div>
@@ -244,7 +308,6 @@ export default {
             infoData: [],
             isTop: 1,
             active: true,
-            showAll: false,
             isShow: 0,
             isshowRegAndLogin: false,
             name: '',
@@ -276,12 +339,6 @@ export default {
         }
     },
     methods: {
-        mouseOver() {
-            this.showAll = true;
-        },
-        mouseLeave() {
-            this.showAll = false;
-        },
         showDialog(visible) {
             this.isShow = visible;
         },
@@ -312,17 +369,7 @@ export default {
                 }
             });
         },
-        // 移入
-        mouseover() {
-            clearTimeout(this.timer);
-            this.isshow = true;
-        },
-        // 移出
-        mouseleave() {
-            this.timer = setTimeout(() => {
-                this.isshow = false;
-            }, 100);
-        },
+
         checkLogin() {
             this.isShow = 1;
         },
@@ -423,6 +470,9 @@ export default {
     justify-content: space-between;
     width: 1200px;
     height: 100%;
+    .head-nav {
+        flex: 1;
+    }
 }
 .bg-color1 {
     background: rgba(2, 1, 24, 0.9);
@@ -444,23 +494,27 @@ export default {
 }
 .li {
     padding: 0px 15px;
-    line-height: 26px;
+    height: 100%;
+    @include flexCenter();
     cursor: pointer;
-    text-align: center;
     margin-right: 10px;
     font-size: 14px;
     color: #333;
 }
 .li:hover {
     color: #f8413d;
-    border-radius: 3px;
+    .h-popover {
+        color: #f8413d;
+    }
 }
 .cl {
     color: #f8413d;
-    border-radius: 3px;
+    .h-popover {
+        color: #f8413d;
+    }
 }
-.c-ce {
-    color: #ce9e6c;
+.h-popover {
+    color: #333333;
 }
 .bd-right {
     border-right: 1px solid white;
@@ -481,13 +535,55 @@ export default {
     overflow-y: scroll;
 }
 .bg-home {
-    /*width: 100%;*/
-    /*background: #f0f1f6;*/
-    /*position: absolute;*/
-    /*left: 0;*/
-    /*top: 0;*/
-    /*bottom: 0;*/
     overflow-x: hidden;
+}
+
+.header-live-nav-box {
+    min-width: 150px;
+    min-height: 100px;
+    background: #ffffff;
+    border-radius: 8px;
+    @include flexColumnCenter();
+    .classify-list {
+        @include flexCenter();
+        width: 100%;
+        .classify-item {
+            width: 66px;
+            height: 26px;
+            border-radius: 2px;
+            border: 1px solid #e3e3e3;
+            margin: 8px 13px;
+            color: #605656;
+            @include flexCenter();
+            cursor: pointer;
+            &:hover {
+                border: 1px solid #f8413d;
+                color: #f8413d;
+            }
+        }
+    }
+    .classify-all {
+        margin-top: 14px;
+        width: 222px;
+        height: 30px;
+        background: #f8413d;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 14px;
+        @include flexCenter();
+        cursor: pointer;
+    }
+}
+.header-down-qr-box {
+    width: 113px;
+    height: 180px;
+    background: #ffffff;
+    border-radius: 8px;
+    @include flexColumnCenter();
+    .down-text {
+        display: block;
+        margin: 18px 0 8px;
+    }
 }
 
 .down-qr-box {
@@ -614,10 +710,89 @@ export default {
     }
 }
 
+.head-userinfo-box {
+    width: 320px;
+    height: 170px;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 18px;
+    .info {
+        width: 100%;
+        @include flexBetweenCenter();
+        .user-avatar {
+            width: 46px;
+            height: 46px;
+            background: #fff0f0;
+            border: 1px solid #d9d9d9;
+            border-radius: 50%;
+            margin-right: 16px;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+        }
+        .user-name {
+            text-align: left;
+            flex: 1;
+            .name {
+                font-size: 14px;
+                color: #333;
+                width: 90px;
+                @include textEllipsis();
+                font-weight: 500;
+            }
+            .grade {
+                font-size: 12px;
+                color: #605656;
+            }
+        }
+        .user-loginout {
+            @include flexColumnCenter();
+            cursor: pointer;
+            img {
+                width: 17px;
+                height: 17px;
+                margin-bottom: 3px;
+            }
+            span {
+                font-size: 12px;
+                color: #605656;
+            }
+        }
+    }
+    .user-nav-list {
+        width: 100%;
+        @include flexBetweenCenter();
+        .nav-item {
+            @include flexColumnCenter();
+            cursor: pointer;
+            img {
+                width: 22px;
+                height: 22px;
+                margin-bottom: 7px;
+            }
+            span {
+                color: #605656;
+                font-size: 12px;
+            }
+        }
+    }
+}
 .header-img {
-    width: 50px;
-    height: 50px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
+    background: #fff0f0;
+    border: 1px solid #f8423e;
+    @include flexCenter();
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+    }
 }
 
 .userInfo-box > div {
@@ -658,10 +833,11 @@ export default {
     width: 184px;
     height: 32px;
     line-height: 32px;
-    margin-right: 14px;
+    margin-right: 10px;
     border-radius: 18px;
     position: relative;
     transition: width 0.3s ease;
+    margin-left: 20px;
 }
 .nav-bar-search input[type='text'] {
     caret-color: #ff9700;
@@ -692,6 +868,7 @@ export default {
     background: linear-gradient(90deg, #ff8d86 0%, #f8413d 100%);
     border-radius: 16px;
     cursor: pointer;
+    margin-right: 10px;
     img {
         width: 18px;
         height: auto;
