@@ -401,11 +401,6 @@
                                                         alt=""
                                                         class="avatar"
                                                     />
-                                                    <img
-                                                        src="../../assets/image/home-living-icon.png"
-                                                        alt=""
-                                                        class="living-icon"
-                                                    />
                                                 </div>
                                                 <div class="anchor-name">
                                                     {{ item.anchorName }}
@@ -513,7 +508,10 @@
                                     />
                                     <span>足球</span>
                                 </div>
-                                <div class="show-more" @click="toPage2('footerball')">
+                                <div
+                                    class="show-more"
+                                    @click="toPage2('footerball')"
+                                >
                                     查看更多
                                     <i class="el-icon-arrow-right"></i>
                                 </div>
@@ -576,7 +574,10 @@
                                     />
                                     <span>篮球</span>
                                 </div>
-                                <div class="show-more" @click="toPage2('basketball')">
+                                <div
+                                    class="show-more"
+                                    @click="toPage2('basketball')"
+                                >
                                     查看更多
                                     <i class="el-icon-arrow-right"></i>
                                 </div>

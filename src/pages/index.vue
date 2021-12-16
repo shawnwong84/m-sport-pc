@@ -15,9 +15,13 @@
                     class="header-box"
                     :class="{ 'live-head': $route.path.includes('/live') }"
                 >
-                    <div class="head-left" @click="toPage('home')">
+                    <div
+                        class="head-left"
+                        :class="{ 'head-exp-left': !getExpansion }"
+                        @click="toPage('home')"
+                    >
                         <img />
-                        <span>体育直播</span>
+                        <span v-if="getExpansion">体育直播</span>
                     </div>
                     <div class="head-right">
                         <div class="head-nav">
@@ -323,6 +327,7 @@
 import { Cookie } from '../api/cookie.js';
 import RegandLogin from '../compent/regAndLogin/index.vue';
 import VueQr from 'vue-qr';
+import { mapGetters } from 'vuex';
 export default {
     name: 'index',
     provide() {
@@ -340,6 +345,9 @@ export default {
             token: '',
             searchContent: '',
         };
+    },
+    computed: {
+        ...mapGetters(['getExpansion']),
     },
     components: {
         'v-reg-login': RegandLogin,
@@ -483,6 +491,10 @@ export default {
             width: 240px;
             height: 64px;
             border-right: 1px solid #e3e3e3;
+            transition: all 0.3s;
+            &.head-exp-left {
+                width: 62px;
+            }
         }
         .head-right {
             .head-nav {
