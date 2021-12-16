@@ -5,19 +5,22 @@
             @dialogVisibleEvent="showDialog"
         ></v-reg-login>
         <div class="content_box" id="searchBar" ref="app">
-            <div class="logo bg-white c-0">
-                <div class="header-box">
-                    <div
-                        class="fx align-items justify-between"
-                        style="width: 100%"
-                    >
-                        <div class="fx align-items head-nav">
-                            <img
-                                src="../assets/image/logo1.png"
-                                @click="toPage('home')"
-                                width="150px"
-                            />
-
+            <div
+                class="header-content"
+                :class="{
+                    'live-header-content': $route.path.includes('/live'),
+                }"
+            >
+                <div
+                    class="header-box"
+                    :class="{ 'live-head': $route.path.includes('/live') }"
+                >
+                    <div class="head-left" @click="toPage('home')">
+                        <img />
+                        <span>体育直播</span>
+                    </div>
+                    <div class="head-right">
+                        <div class="head-nav">
                             <div
                                 class="li"
                                 @click="toPage('home')"
@@ -35,9 +38,9 @@
 
                             <div
                                 class="li"
-                                @click="toPage('all')"
+                                @click="toPage('live')"
                                 :class="
-                                    $route.name === 'all' ||
+                                    $route.path.includes('/live') ||
                                     $route.name === 'room'
                                         ? 'cl'
                                         : ''
@@ -46,18 +49,31 @@
                                 <el-popover placement="bottom" trigger="hover">
                                     <div class="header-live-nav-box">
                                         <div class="classify-list">
-                                            <div class="classify-item">
+                                            <div
+                                                class="classify-item"
+                                                @click="toPage('footerball')"
+                                            >
                                                 足球
                                             </div>
-                                            <div class="classify-item">
+                                            <div
+                                                class="classify-item"
+                                                @click="toPage('basketball')"
+                                            >
                                                 篮球
                                             </div>
                                         </div>
-                                        <div class="classify-all">查看全部</div>
+                                        <div
+                                            class="classify-all"
+                                            @click="toPage('allball')"
+                                        >
+                                            查看全部
+                                        </div>
                                     </div>
                                     <div slot="reference">
-                                        <div class="h-popover"></div>
-                                        <span>直播</span>
+                                        <span class="h-popover"
+                                            >直播
+                                            <i class="el-icon-caret-bottom"></i
+                                        ></span>
                                     </div>
                                 </el-popover>
                             </div>
@@ -136,124 +152,135 @@
                                 </el-popover>
                             </div>
                         </div>
-                        <div class="nav-bar-search search-popover-container">
-                            <input
-                                type="text"
-                                id="search"
-                                v-model="searchContent"
-                                maxlength="10"
-                                placeholder="房间号/房间名/主播名"
-                                autocomplete="off"
-                            />
-                            <i class="search-icon" @click="toSearch"></i>
-                        </div>
-                        <div class="fx align-items justify-center live-start">
-                            <img
-                                src="../assets/image/header-live-icon.png"
-                                alt=""
-                            />
-                            <span @click="toPage('my', 7)">开播</span>
-                        </div>
-                        <div class="fx align-items" v-if="!token">
+                        <div class="head-search-login">
                             <div
-                                class="ml-5 cursor fx align-items"
-                                :class="isTop === 1 ? '' : 'yellow'"
+                                class="nav-bar-search search-popover-container"
                             >
-                                <div
-                                    @click="checkLogin"
-                                    class="c-primary fs-14"
-                                >
-                                    登录
-                                </div>
-                                <div
-                                    style="
-                                        border-right: 1px solid #e5e5e5;
-                                        height: 10px;
-                                        margin-left: 12px;
-                                    "
-                                ></div>
-                                <div
-                                    @click="checkReg"
-                                    class="ml-10 c-primary fs-14"
-                                >
-                                    注册
+                                <input
+                                    type="text"
+                                    id="search"
+                                    v-model="searchContent"
+                                    maxlength="10"
+                                    placeholder="房间号/房间名/主播名"
+                                    autocomplete="off"
+                                />
+                                <i class="search-icon" @click="toSearch"></i>
+                            </div>
+                            <div
+                                class="fx align-items justify-center live-start"
+                            >
+                                <img
+                                    src="../assets/image/header-live-icon.png"
+                                    alt=""
+                                />
+                                <span @click="toPage('my', 7)">开播</span>
+                            </div>
+                            <div class="fx align-items" v-if="!token">
+                                <div class="ml-5 cursor fx align-items">
+                                    <div
+                                        @click="checkLogin"
+                                        class="c-primary fs-14"
+                                    >
+                                        登录
+                                    </div>
+                                    <div
+                                        style="
+                                            border-right: 1px solid #e5e5e5;
+                                            height: 10px;
+                                            margin-left: 12px;
+                                        "
+                                    ></div>
+                                    <div
+                                        @click="checkReg"
+                                        class="ml-10 c-primary fs-14"
+                                    >
+                                        注册
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div
-                            class="fx align-items"
-                            v-if="token"
-                            @click="toPage('my')"
-                        >
-                            <el-popover placement="bottom-end" trigger="hover">
-                                <div class="head-userinfo-box">
-                                    <div class="info">
-                                        <div class="user-avatar">
-                                            <img
-                                                :src="infoData.avatarUrl"
-                                                alt=""
-                                            />
+                            <div
+                                class="fx align-items"
+                                v-if="token"
+                                @click="toPage('my')"
+                            >
+                                <el-popover
+                                    placement="bottom-end"
+                                    trigger="hover"
+                                >
+                                    <div class="head-userinfo-box">
+                                        <div class="info">
+                                            <div class="user-avatar">
+                                                <img
+                                                    :src="infoData.avatarUrl"
+                                                    alt=""
+                                                />
+                                            </div>
+                                            <div class="user-name">
+                                                <p class="name">
+                                                    用户名：{{
+                                                        infoData.userName
+                                                    }}
+                                                </p>
+                                                <p class="grade">
+                                                    等级：{{ infoData.level }}
+                                                </p>
+                                            </div>
+                                            <div
+                                                class="user-loginout"
+                                                @click="loginOut"
+                                            >
+                                                <img
+                                                    src="../assets/image/header/login-out-icon.png"
+                                                    alt=""
+                                                />
+                                                <span>退出</span>
+                                            </div>
                                         </div>
-                                        <div class="user-name">
-                                            <p class="name">
-                                                用户名：{{ infoData.userName }}
-                                            </p>
-                                            <p class="grade">
-                                                等级：{{ infoData.level }}
-                                            </p>
-                                        </div>
-                                        <div
-                                            class="user-loginout"
-                                            @click="loginOut"
-                                        >
-                                            <img
-                                                src="../assets/image/header/login-out-icon.png"
-                                                alt=""
-                                            />
-                                            <span>退出</span>
+                                        <el-divider></el-divider>
+                                        <div class="user-nav-list">
+                                            <div
+                                                class="nav-item"
+                                                @click="toPage('my')"
+                                            >
+                                                <img
+                                                    src="../assets/image/header/user-center-icon.png"
+                                                    alt=""
+                                                />
+                                                <span>个人中心</span>
+                                            </div>
+                                            <div class="nav-item">
+                                                <img
+                                                    src="../assets/image/header/follow-icon.png"
+                                                    alt=""
+                                                />
+                                                <span>我的关注</span>
+                                            </div>
+                                            <div class="nav-item">
+                                                <img
+                                                    src="../assets/image/header/message-icon.png"
+                                                    alt=""
+                                                />
+                                                <span>我的消息</span>
+                                            </div>
+                                            <div class="nav-item">
+                                                <img
+                                                    src="../assets/image/header/video-living-icon.png"
+                                                    alt=""
+                                                />
+                                                <span>我要开播</span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <el-divider></el-divider>
-                                    <div class="user-nav-list">
-                                        <div class="nav-item" @click="toPage('my')">
-                                            <img
-                                                src="../assets/image/header/user-center-icon.png"
-                                                alt=""
-                                            />
-                                            <span>个人中心</span>
-                                        </div>
-                                        <div class="nav-item">
-                                            <img
-                                                src="../assets/image/header/follow-icon.png"
-                                                alt=""
-                                            />
-                                            <span>我的关注</span>
-                                        </div>
-                                        <div class="nav-item">
-                                            <img
-                                                src="../assets/image/header/message-icon.png"
-                                                alt=""
-                                            />
-                                            <span>我的消息</span>
-                                        </div>
-                                        <div class="nav-item">
-                                            <img
-                                                src="../assets/image/header/video-living-icon.png"
-                                                alt=""
-                                            />
-                                            <span>我要开播</span>
-                                        </div>
+                                    <div class="header-img" slot="reference">
+                                        <img :src="infoData.avatarUrl" />
                                     </div>
-                                </div>
-                                <div class="header-img" slot="reference">
-                                    <img :src="infoData.avatarUrl" />
-                                </div>
-                            </el-popover>
+                                </el-popover>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="right-box" v-if="isTop === 2 && $route.name !== 'room'">
+            <div class="right-box" v-if="$route.name !== 'room'">
                 <div class="nav-item download">
                     <el-popover placement="right" trigger="hover">
                         <div class="down-qr-box">
@@ -306,7 +333,6 @@ export default {
     data() {
         return {
             infoData: [],
-            isTop: 1,
             active: true,
             isShow: 0,
             isshowRegAndLogin: false,
@@ -319,16 +345,9 @@ export default {
         'v-reg-login': RegandLogin,
         VueQr,
     },
-    watch: {
-        $route(to) {
-            this.name = to.name;
-            this.getScroll();
-        },
-    },
     mounted() {
         this.name = this.$route.name;
         this.token = Cookie.get('token');
-        this.getScroll();
         if (this.token) {
             this.getInfo();
         }
@@ -346,8 +365,10 @@ export default {
             window.open('http://dl.hszhibo.live');
         },
         goTop() {
-            this.$refs.app.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+            });
         },
         // 生成deviceId
         randomCoding() {
@@ -376,28 +397,7 @@ export default {
         checkReg() {
             this.isShow = 2;
         },
-        getScroll() {
-            if (this.name === 'home') {
-                this.isTop = 1;
-                window.addEventListener('scroll', this.handleScroll, true);
-            } else {
-                window.removeEventListener('scroll', this.handleScroll);
-                this.isTop = 2;
-            }
-        },
-        handleScroll() {
-            // 改变元素#searchBar的top值
-            var scrollTop = document.querySelector('#searchBar').scrollTop;
-            if (scrollTop > 40) {
-                this.isTop = 2;
-            } else {
-                if (this.name === 'home') {
-                    this.isTop = 1;
-                } else {
-                    this.isTop = 2;
-                }
-            }
-        },
+
         destroyed() {
             // 离开该页面需要移除这个监听的事件，不然会报错
             window.removeEventListener('scroll', this.handleScroll);
@@ -451,18 +451,23 @@ export default {
 <style scoped lang="scss">
 .index-wrapper {
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - 64px);
     min-width: 1320px;
 }
-.logo {
+.header-content {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    line-height: 60px;
     box-shadow: 3px 0px 8px 0px rgba(0, 0, 0, 0.1);
     height: 64px;
     background: #fff;
+    &.live-header-content {
+        position: fixed;
+        z-index: 99;
+        left: 0;
+        top: 0;
+    }
 }
 .header-box {
     display: flex;
@@ -470,8 +475,84 @@ export default {
     justify-content: space-between;
     width: 1200px;
     height: 100%;
-    .head-nav {
+    &.live-head {
+        width: 100%;
+        min-width: 1200px;
+        padding-right: 30px;
+        .head-left {
+            width: 240px;
+            height: 64px;
+            border-right: 1px solid #e3e3e3;
+        }
+        .head-right {
+            .head-nav {
+                width: 600px;
+                flex: none;
+            }
+        }
+    }
+    .head-left {
+        @include flexCenter();
+        cursor: pointer;
+        img {
+            width: 48px;
+            height: 48px;
+            border-radius: 16px;
+            margin-right: 6px;
+        }
+        span {
+            font-size: 21px;
+            color: #333333;
+            font-weight: 500;
+        }
+    }
+    .head-right {
         flex: 1;
+        @include flexBetweenCenter();
+        margin-left: 60px;
+
+        .head-nav {
+            flex: 1;
+
+            @include flexBetweenCenter();
+        }
+        .head-search-login {
+            @include flexCenter();
+        }
+
+        .nav-bar-search {
+            width: 184px;
+            height: 32px;
+            line-height: 32px;
+            margin-right: 10px;
+            border-radius: 18px;
+            position: relative;
+            transition: width 0.3s ease;
+            margin-left: 90px;
+        }
+        .nav-bar-search input[type='text'] {
+            caret-color: $primary-color;
+            width: 100%;
+            height: 100%;
+            color: #666;
+            font-size: 12px;
+            padding-left: 18px;
+            padding-right: 15px;
+            background-color: #ececec;
+            border-radius: 16px;
+            outline: none;
+        }
+        .nav-bar-search .search-icon {
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: url('../assets/image/sousuo-icon.png') no-repeat;
+            background-size: 100% 100%;
+            cursor: pointer;
+        }
     }
 }
 .bg-color1 {
@@ -482,19 +563,9 @@ export default {
     background: white;
     color: #4a4c5b;
 }
-.head {
-    display: flex;
-    align-items: center;
-    background-color: #ea1a19;
-    color: #ffffff;
-    padding-left: 50px;
-    height: 80px;
-    font-size: 18px;
-    margin: 10px 100px;
-}
+
 .li {
-    padding: 0px 15px;
-    height: 100%;
+    height: 50px;
     @include flexCenter();
     cursor: pointer;
     margin-right: 10px;
@@ -515,27 +586,26 @@ export default {
 }
 .h-popover {
     color: #333333;
+    display: block;
+    height: 50px;
+    @include flexCenter();
 }
 .bd-right {
     border-right: 1px solid white;
 }
 
 .content_box {
-    /*background: #F9FBFF;*/
     background-image: url('https://1-1305184012.cos.ap-nanjing.myqcloud.com/live/bg2.png');
-    background-size: 100% auto;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     width: 100%;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    overflow: hidden;
-    overflow-y: scroll;
+    min-height: calc(100% - 64px);
 }
 .bg-home {
     overflow-x: hidden;
+    width: 100%;
+    height: 100%;
 }
 
 .header-live-nav-box {
@@ -742,6 +812,7 @@ export default {
                 width: 90px;
                 @include textEllipsis();
                 font-weight: 500;
+                margin-bottom: 5px;
             }
             .grade {
                 font-size: 12px;
@@ -828,39 +899,6 @@ export default {
     border: 1px solid #efefef;
     padding: 3px 10px;
     border-radius: 3px;
-}
-.nav-bar-search {
-    width: 184px;
-    height: 32px;
-    line-height: 32px;
-    margin-right: 10px;
-    border-radius: 18px;
-    position: relative;
-    transition: width 0.3s ease;
-    margin-left: 20px;
-}
-.nav-bar-search input[type='text'] {
-    caret-color: #ff9700;
-    width: 100%;
-    height: 100%;
-    color: #666;
-    font-size: 12px;
-    padding-left: 18px;
-    padding-right: 15px;
-    background-color: #ececec;
-    border-radius: 16px;
-    outline: none;
-}
-.nav-bar-search .search-icon {
-    width: 16px;
-    height: 16px;
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: url('../assets/image/sousuo-icon.png') no-repeat;
-    background-size: 100% 100%;
-    cursor: pointer;
 }
 .live-start {
     width: 80px;

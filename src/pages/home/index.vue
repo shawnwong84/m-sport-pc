@@ -283,6 +283,11 @@
                                     </div>
                                 </div>
                                 <div class="fx align-items c-9 fs-14">
+                                    <img
+                                        src="../../assets/image/icon-hot-gray.png"
+                                        width="14px"
+                                        class="hot-icon"
+                                    />
                                     {{ hotList[0] && hotList[0].hotNum }}
                                 </div>
                             </div>
@@ -329,6 +334,11 @@
                                             </div>
                                         </div>
                                         <div class="c-9 fs-12 fx align-items">
+                                            <img
+                                                src="../../assets/image/icon-hot-gray.png"
+                                                width="12px"
+                                                class="hot-icon"
+                                            />
                                             {{ item.hotNum }}
                                         </div>
                                     </div>
@@ -503,7 +513,7 @@
                                     />
                                     <span>足球</span>
                                 </div>
-                                <div class="show-more" @click="toPage2('all')">
+                                <div class="show-more" @click="toPage2('footerball')">
                                     查看更多
                                     <i class="el-icon-arrow-right"></i>
                                 </div>
@@ -566,7 +576,7 @@
                                     />
                                     <span>篮球</span>
                                 </div>
-                                <div class="show-more" @click="toPage2('all')">
+                                <div class="show-more" @click="toPage2('basketball')">
                                     查看更多
                                     <i class="el-icon-arrow-right"></i>
                                 </div>
@@ -1119,6 +1129,7 @@ export default {
                 height: 242px;
                 background: #d8d8d8;
                 border-radius: 8px 8px 0px 0px;
+
                 &.match-bg {
                     background-size: cover;
                     background-position: center;
@@ -1127,6 +1138,9 @@ export default {
                 img {
                     width: 30px;
                 }
+            }
+            .hot-icon {
+                margin-right: 3px;
             }
         }
         .hot-content-right {
@@ -1145,6 +1159,9 @@ export default {
                     margin-left: auto;
                     .bg-fff {
                         padding: 4px 5px;
+                    }
+                    .hot-icon {
+                        margin-right: 2px;
                     }
                     .right-cover {
                         width: 190px;

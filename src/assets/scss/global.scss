@@ -13,6 +13,4 @@ body {
     @include flexColumnStart();
 }
 
-#nprogress .bar {
-    background: '$primary-color' !important; //自定义Nprogress颜色
-}
+

@@ -5,6 +5,7 @@ import App from './App';
 import './assets/css/content.css';
 import './assets/css/base.css';
 import './assets/style/theme/index.css';
+import './assets/scss/global.scss';
 import 'swiper/css/swiper.css';
 import 'babel-polyfill';
 import ax from './api/index';

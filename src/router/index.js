@@ -28,9 +28,36 @@ export default new Router({
                     component: () => import('@/pages/course/index.vue'),
                 },
                 {
-                    path: '/all',
-                    name: 'all',
+                    path: '/live',
+                    name: 'live',
                     component: () => import('@/pages/all/index.vue'),
+                    redirect: '/live/allball',
+                    children: [
+                        {
+                            path: '/live/allball',
+                            name: 'allball',
+                            component: () =>
+                                import('@/pages/all/allBall/index.vue'),
+                        },
+                        {
+                            path: '/live/hotball',
+                            name: 'hotball',
+                            component: () =>
+                                import('@/pages/all/hotBall/index.vue'),
+                        },
+                        {
+                            path: '/live/basketball',
+                            name: 'basketball',
+                            component: () =>
+                                import('@/pages/all/basketBall/index.vue'),
+                        },
+                        {
+                            path: '/live/footerball',
+                            name: 'footerball',
+                            component: () =>
+                                import('@/pages/all/footerBall/index.vue'),
+                        },
+                    ],
                 },
                 {
                     path: '/room',
