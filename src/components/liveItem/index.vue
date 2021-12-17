@@ -8,7 +8,7 @@
     <div
         class="live-item"
         :class="{ 'live-exp-item': !getExpansion }"
-        @click="toPage('/room', item.roomId)"
+        @click="toPage('/live/room', item.roomId)"
     >
         <div
             class="match-cover matchCutImg"
@@ -75,11 +75,8 @@ export default {
     height: 220px;
     background: #ffffff;
     border-radius: 8px;
-    margin-right: 22px;
-    margin-bottom: 22px;
-    // &:last-child {
-    //     margin-right: auto;
-    // }
+    margin-right: 32px;
+    margin-bottom: 32px;
 
     &:hover {
         transform: translateY(-5px);

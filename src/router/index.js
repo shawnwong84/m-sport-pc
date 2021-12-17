@@ -41,7 +41,7 @@ const router = new Router({
                 {
                     path: '/live',
                     name: 'live',
-                    component: () => import('@/pages/all/index.vue'),
+                    component: () => import('@/pages/live/index.vue'),
                     redirect: '/live/allball',
                     meta: {
                         footShow: true,
@@ -52,7 +52,7 @@ const router = new Router({
                             path: '/live/allball',
                             name: 'allball',
                             component: () =>
-                                import('@/pages/all/allBall/index.vue'),
+                                import('@/pages/live/allBall/index.vue'),
                             meta: {
                                 footShow: true,
                                 requiresAuth: false,
@@ -62,7 +62,7 @@ const router = new Router({
                             path: '/live/hotball',
                             name: 'hotball',
                             component: () =>
-                                import('@/pages/all/hotBall/index.vue'),
+                                import('@/pages/live/hotBall/index.vue'),
                             meta: {
                                 footShow: true,
                                 requiresAuth: false,
@@ -72,7 +72,7 @@ const router = new Router({
                             path: '/live/basketball',
                             name: 'basketball',
                             component: () =>
-                                import('@/pages/all/basketBall/index.vue'),
+                                import('@/pages/live/basketBall/index.vue'),
                             meta: {
                                 footShow: true,
                                 requiresAuth: false,
@@ -82,22 +82,23 @@ const router = new Router({
                             path: '/live/footerball',
                             name: 'footerball',
                             component: () =>
-                                import('@/pages/all/footerBall/index.vue'),
+                                import('@/pages/live/footerBall/index.vue'),
+                            meta: {
+                                footShow: true,
+                                requiresAuth: false,
+                            },
+                        },
+                        {
+                            path: '/live/room',
+                            name: 'room',
+                            component: () =>
+                                import('@/pages/live/room/index.vue'),
                             meta: {
                                 footShow: true,
                                 requiresAuth: false,
                             },
                         },
                     ],
-                },
-                {
-                    path: '/room',
-                    name: 'room',
-                    component: () => import('@/pages/room/index.vue'),
-                    meta: {
-                        footShow: true,
-                        requiresAuth: false,
-                    },
                 },
                 {
                     path: '/new',
