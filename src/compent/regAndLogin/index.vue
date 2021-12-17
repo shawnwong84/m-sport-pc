@@ -3,7 +3,6 @@
         <div class="header-modal" v-if="isShow === 1 || isShow === 2"></div>
         <div class="login-window" v-if="isShow === 1">
             <div>
-                <img src="../../assets/image/angle.png" class="angle" />
                 <img
                     src="../../assets/image/close.png"
                     class="close"
@@ -11,52 +10,58 @@
                 />
             </div>
             <div class="window-inner">
-                <div class="fs-22 fw-700">登录</div>
-                <div class="fx align-items txt-box mt-30 bd-bottom">
-                    <div>+86</div>
-                    <div class="fs-12 ml-10">
-                        <input
-                            type="text"
-                            v-model="phone"
-                            placeholder="请输入手机号码"
-                            maxlength="11"
-                        />
-                    </div>
+                <div class="modal-title">登录</div>
+                <div class="input-item">
+                    <div class="common-input-left">+86</div>
+                    <input
+                        type="text"
+                        v-model="phone"
+                        placeholder="请输入手机号码"
+                        maxlength="11"
+                        class="phone-input"
+                    />
                 </div>
-                <div
-                    class="mt-30 txt-box bd-bottom fx align-items justify-between"
-                >
-                    <div class="fs-12">
+                <div class="input-item">
+                    <div class="input-password">
+                        <div class="common-input-left">
+                            <img
+                                src="../../assets/image/lock-icon.png"
+                                alt=""
+                                width="20px"
+                            />
+                        </div>
                         <input
                             type="password"
                             v-if="isEye === 1"
                             v-model="password"
                             placeholder="请输入6-16位登录密码"
+                            maxlength="16"
                         />
                         <input
                             type="text"
                             v-if="isEye === 2"
                             v-model="password"
                             placeholder="请输入6-16位登录密码"
+                            maxlength="16"
                         />
-                    </div>
-                    <div>
-                        <img
-                            v-if="isEye === 1"
-                            src="../../assets/image/pwd-yc.png"
-                            width="30px"
-                            @click="checkEye"
-                        />
-                        <img
-                            v-if="isEye === 2"
-                            src="../../assets/image/yincan.png"
-                            width="30px"
-                            @click="checkEye"
-                        />
+                        <div class="password-icon">
+                            <img
+                                v-if="isEye === 1"
+                                src="../../assets/image/pwd-yc.png"
+                                width="20px"
+                                @click="checkEye"
+                            />
+                            <img
+                                v-if="isEye === 2"
+                                src="../../assets/image/yincan.png"
+                                width="20px"
+                                @click="checkEye"
+                            />
+                        </div>
                     </div>
                 </div>
                 <div class="fx justify-between align-items mt-20">
-                    <div>
+                    <div class="fx align-items">
                         <span
                             ><img
                                 src="../../assets/image/gou.png"
@@ -66,7 +71,7 @@
                         /></span>
                         <span class="fs-12">登录即代表你已同意</span>
                         <span
-                            class="fs-12 ffb600 cursor"
+                            class="fs-12 c-primary cursor"
                             @click="toPage('agreement')"
                             >《用户服务协议》</span
                         >
@@ -74,10 +79,7 @@
                     <div class="fs-12 c-9 cursor" @click="toMy">忘记密码</div>
                 </div>
                 <div class="red fs-12" v-if="isRead">请仔细阅读并勾选协议</div>
-                <div class="fx justify-between mt-50">
-                    <div class="cursor" @click="checkReg">
-                        <a>注册新账号</a>
-                    </div>
+                <div class="sub-box">
                     <div
                         class="submit"
                         @click="loginByPc"
@@ -89,12 +91,14 @@
                     >
                         登录
                     </div>
+                    <div class="cursor sub-nav" @click="checkReg">
+                        <a>注册新账号</a>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="reg-window" v-if="isShow === 2">
             <div>
-                <img src="../../assets/image/angle.png" class="angle" />
                 <img
                     src="../../assets/image/close.png"
                     class="close"
@@ -102,26 +106,26 @@
                 />
             </div>
             <div class="window-inner">
-                <div class="fs-22 fw-700">注册</div>
-                <div class="fx align-items txt-box mt-30 bd-bottom">
-                    <div>+86</div>
-                    <div class="fs-12 ml-10">
-                        <input
-                            type="text"
-                            v-model="phone"
-                            placeholder="请输入手机号码"
-                            maxlength="11"
-                        />
-                    </div>
+                <div class="modal-title">注册</div>
+                <div class="input-item">
+                    <div class="common-input-left">+86</div>
+
+                    <input
+                        type="text"
+                        v-model="phone"
+                        placeholder="请输入手机号码"
+                        maxlength="11"
+                        class="phone-input"
+                    />
                 </div>
-                <div
-                    class="fx align-items justify-between txt-box mt-30 bd-bottom"
-                >
-                    <div class="fs-12">
+                <div class="input-item">
+                    <div class="send-input">
+                        <div class="common-input-left">验证码</div>
                         <input
                             type="text"
                             v-model="smsCode"
                             placeholder="获取并输入验证码"
+                            maxlength="8"
                         />
                     </div>
                     <div class="btn-verify">
@@ -134,47 +138,55 @@
                         />
                     </div>
                 </div>
-                <div class="mt-30 txt-box bd-bottom">
-                    <div class="fs-12">
-                        <input
-                            type="text"
-                            v-model="nickName"
-                            placeholder="请输入用户名"
-                        />
-                    </div>
+                <div class="input-item">
+                    <div class="common-input-left">用户名</div>
+                    <input
+                        type="text"
+                        v-model="nickName"
+                        placeholder="请输入用户名"
+                        class="name-input"
+                    />
                 </div>
-                <div
-                    class="mt-30 txt-box bd-bottom fx align-items justify-between"
-                >
-                    <div class="fs-12">
+                <div class="input-item">
+                    <div class="input-password">
+                        <div class="common-input-left">
+                            <img
+                                src="../../assets/image/lock-icon.png"
+                                alt=""
+                                width="20px"
+                            />
+                        </div>
                         <input
                             type="password"
                             v-if="isEye === 1"
                             v-model="password"
                             placeholder="请输入6-16位登录密码"
+                            maxlength="16"
                         />
                         <input
                             type="text"
                             v-if="isEye === 2"
                             v-model="password"
                             placeholder="请输入6-16位登录密码"
+                            maxlength="16"
                         />
-                    </div>
-                    <div>
-                        <img
-                            v-if="isEye === 1"
-                            src="../../assets/image/pwd-yc.png"
-                            width="30px"
-                            @click="checkEye"
-                        />
-                        <img
-                            v-if="isEye === 2"
-                            src="../../assets/image/yincan.png"
-                            width="30px"
-                            @click="checkEye"
-                        />
+                        <div class="password-icon">
+                            <img
+                                v-if="isEye === 1"
+                                src="../../assets/image/pwd-yc.png"
+                                width="20px"
+                                @click="checkEye"
+                            />
+                            <img
+                                v-if="isEye === 2"
+                                src="../../assets/image/yincan.png"
+                                width="20px"
+                                @click="checkEye"
+                            />
+                        </div>
                     </div>
                 </div>
+
                 <div class="mt-20">
                     <span
                         ><img
@@ -185,16 +197,13 @@
                     /></span>
                     <span class="fs-12">我已阅读并同意</span>
                     <span
-                        class="fs-12 ffb600 cursor"
+                        class="fs-12 c-primary cursor"
                         @click="toPage('agreement')"
                         >《用户服务协议》</span
                     >
                 </div>
                 <div class="red fs-12" v-if="isRead">请仔细阅读并勾选协议</div>
-                <div class="fx justify-between mt-50">
-                    <div class="cursor" @click="checkLogin">
-                        <a>登录账号</a>
-                    </div>
+                <div class="sub-box">
                     <div
                         class="submit"
                         :class="
@@ -205,6 +214,9 @@
                         @click="getReg"
                     >
                         注册
+                    </div>
+                    <div class="cursor sub-nav" @click="checkLogin">
+                        <a>登录账号</a>
                     </div>
                 </div>
             </div>
@@ -432,7 +444,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .yellow {
     color: #ce9e6c;
 }
@@ -447,30 +459,25 @@ export default {
 }
 .login-window {
     position: fixed;
-    width: 400px;
+    width: 480px;
     background: #fff;
-    border-radius: 4px;
+    border-radius: 20px;
     top: 20%;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 102;
+    z-index: 199;
 }
 .reg-window {
     position: fixed;
-    width: 400px;
+    width: 480px;
     background: #fff;
-    border-radius: 4px;
+    border-radius: 20px;
     top: 20%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 102;
 }
-.angle {
-    float: left;
-    width: 28px;
-    height: 28px;
-    border-top-left-radius: 4px;
-}
+
 .close {
     float: right;
     width: 14px;
@@ -480,7 +487,115 @@ export default {
     cursor: pointer;
 }
 .window-inner {
-    padding: 42px 50px 29px;
+    padding: 42px 60px 60px;
+    .modal-title {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    .input-item {
+        width: 100%;
+        height: 48px;
+        @include flexCenter();
+        position: relative;
+        margin-bottom: 25px;
+
+        input {
+            border-radius: 8px;
+
+            height: 48px;
+            width: 100%;
+            border-radius: 8px;
+            background: transparent;
+            outline: 1px solid #dfdcdc;
+            border: none;
+            font-size: 14px;
+            color: #333333;
+        }
+        .phone-input {
+            padding-left: 70px;
+        }
+
+        .common-input-left {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            left: 0px;
+            width: 50px;
+            height: 100%;
+            background: #f7f7f7;
+            border-radius: 8px 0 0 8px;
+            @include flexCenter();
+            font-size: 14px;
+            color: #333333;
+        }
+        .input-password {
+            width: 100%;
+            height: 48px;
+            position: relative;
+
+            input {
+                padding-left: 70px;
+                padding-right: 40px;
+            }
+            .password-icon {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 1;
+                right: 0;
+                width: 30px;
+                height: 100%;
+                @include flexCenter();
+            }
+        }
+        .send-input {
+            width: 240px;
+            height: 100%;
+            position: relative;
+            input {
+                padding-left: 70px;
+                padding-right: 20px;
+            }
+        }
+        .name-input {
+            padding-left: 70px;
+            padding-right: 20px;
+        }
+        .btn-verify {
+            flex: 1;
+            margin-left: 20px;
+            height: 100%;
+            input {
+                color: #fff;
+                font-size: 14px;
+                background: linear-gradient(90deg, #ff8d86 0%, #f8413d 100%);
+                outline: none;
+            }
+        }
+    }
+    .sub-box {
+        margin-top: 30px;
+        .submit {
+            width: 100%;
+            height: 46px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            background: #efefef;
+            border-radius: 8px;
+            @include flexCenter();
+            &.active {
+                color: #fff;
+                background: linear-gradient(90deg, #ff8d86 0%, #f8413d 100%);
+            }
+        }
+        .sub-nav {
+            text-decoration: underline;
+            color: $primary-color;
+        }
+    }
 }
 .txt-box {
     height: 30px;
@@ -488,6 +603,7 @@ export default {
 .gou {
     width: 13px;
     opacity: 0.2;
+    margin-right: 5px;
 }
 .gou-cl {
     opacity: 1;
@@ -498,37 +614,8 @@ export default {
 .mt-50 {
     margin-top: 50px;
 }
-.submit {
-    width: 108px;
-    height: 36px;
-    padding-top: 7px;
-    background: #efefef;
-    border-radius: 4px;
-    text-align: center;
-    font-size: 16px;
-    color: #777;
-    cursor: default;
-}
-.btn-verify {
-    width: 74px;
-    height: 27px;
-    font-size: 12px;
-    text-align: center;
-    padding-top: 5px;
-    margin-bottom: 10px;
-    background: #efefef;
-    border-radius: 4px;
-    cursor: pointer;
-}
-.active {
-    color: #fff;
-    background: linear-gradient(132deg, #fbcfa1 0%, #ce9e6c 100%);
-}
 
 .red {
-    color: red;
-}
-.bd-bottom {
-    border-bottom: 1px solid #bcbcbc;
+    color: $primary-color;
 }
 </style>
