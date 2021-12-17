@@ -418,7 +418,7 @@ export default {
             } else {
                 this.$router.push({ name: name });
             }
-            this.isShow = 0;
+            
         },
         toSearch() {
             // console.log(this.searchContent)
@@ -432,7 +432,7 @@ export default {
         },
         toPageMy(name, num) {
             if (!Cookie.get('token')) {
-                this.isShow = 1;
+                this.setPermissionModal(1);
             } else {
                 this.$router.push({ name: name, query: { num: num } });
                 this.reload();
@@ -443,7 +443,6 @@ export default {
                 if (res.code === 200) {
                     Cookie.remove('token');
                     this.token = '';
-                    this.isShow = 0;
                     this.$router.push({ name: 'home' });
                 }
             });
