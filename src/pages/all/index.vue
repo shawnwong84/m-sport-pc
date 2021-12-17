@@ -4,7 +4,10 @@
             <div class="nocollapse-box" v-if="getExpansion">
                 <div class="left-nav-box">
                     <div class="slide-nav">
-                        <div class="slide-nav-item">
+                        <div
+                            class="slide-nav-item"
+                            @click="toPage('/live/allball')"
+                        >
                             <img
                                 src="../../assets/image/live/live-nav-icon.png"
                                 alt=""
@@ -43,7 +46,7 @@
                         </div>
                     </div>
                     <div class="start-living-nav">
-                        <div class="down-app">
+                        <div class="down-app" @click="toPage('/down', true)">
                             <img
                                 src="../../assets/image/live/phone-icon.png"
                                 alt=""
@@ -67,7 +70,10 @@
             </div>
             <div class="nocollapse-exp-box" v-else>
                 <div class="slide-nav">
-                    <div class="slide-nav-item">
+                    <div
+                        class="slide-nav-item"
+                        @click="toPage('/live/allball')"
+                    >
                         <img
                             src="../../assets/image/live/live-nav-icon.png"
                             alt=""
@@ -83,7 +89,7 @@
                     </div>
                 </div>
                 <div class="down-app-nav">
-                    <div class="down-app" @click="toPage('/down')">
+                    <div class="down-app" @click="toPage('/down', true)">
                         <img
                             src="../../assets/image/live/phone2-icon.png"
                             alt=""
@@ -146,8 +152,15 @@ export default {
         ...mapMutations({
             setExpansion: 'setExpansion',
         }),
-        toPage(path) {
-            this.$router.push(path);
+        toPage(path, isOpen = false) {
+            if (isOpen) {
+                let routeData = this.$router.resolve({
+                    path:path,
+                });
+                window.open(routeData.href, '_blank');
+            } else {
+                this.$router.push(path);
+            }
         },
     },
 };
@@ -326,6 +339,7 @@ export default {
                     width: 100%;
                     @include flexColumnCenter();
                     margin-bottom: 32px;
+                    cursor: pointer;
                     img {
                         width: 18px;
                         height: 18px;

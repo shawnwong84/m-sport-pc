@@ -77,13 +77,17 @@ export default {
     border-radius: 8px;
     margin-right: 22px;
     margin-bottom: 22px;
-    &:last-child {
-        margin-right: auto;
-    }
+    // &:last-child {
+    //     margin-right: auto;
+    // }
 
     &:hover {
         transform: translateY(-5px);
         transition: all 0.3s;
+    }
+    &.live-exp-item {
+        width: 291px;
+        height: 237px;
     }
 
     .match-cover {

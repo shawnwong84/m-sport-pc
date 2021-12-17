@@ -1125,6 +1125,10 @@ export default {
         .hot-content-left {
             width: 392px;
             height: 100%;
+            &:hover {
+                transform: translateY(-5px);
+                transition: all 0.3s;
+            }
             .left-cover {
                 width: 392px;
                 height: 242px;
@@ -1158,6 +1162,10 @@ export default {
                     width: 190px;
                     height: 140px;
                     margin-left: auto;
+                    &:hover {
+                        transform: translateY(-5px);
+                        transition: all 0.3s;
+                    }
                     .bg-fff {
                         padding: 4px 5px;
                     }
@@ -1531,6 +1539,10 @@ export default {
                         flex-direction: column;
                         align-items: center;
                         justify-content: flex-start;
+                        &:hover {
+                            transform: translateY(-5px);
+                            transition: all 0.3s;
+                        }
 
                         .match-cover {
                             width: 227px;
