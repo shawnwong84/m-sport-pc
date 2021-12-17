@@ -25,7 +25,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import liveItem from '../../../compent/liveItem';
+import liveItem from '../../../components/liveItem';
 
 export default {
     name: 'basketball',

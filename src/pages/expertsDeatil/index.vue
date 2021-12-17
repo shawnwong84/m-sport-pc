@@ -1,9 +1,5 @@
 <template>
     <div>
-        <v-reg-login
-            :isShow="isShow"
-            @dialogVisibleEvent="showDialog"
-        ></v-reg-login>
         <div class="fx justify-center">
             <div class="new">
                 <div>
@@ -460,8 +456,8 @@
 </template>
 
 <script>
-import footer from '../../compent/footer/index.vue';
-import RegandLogin from '../../compent/regAndLogin';
+import footer from '../../components/footer/index.vue';
+import { mapMutations } from 'vuex';
 import { Cookie } from '../../api/cookie';
 export default {
     name: 'index',
@@ -469,12 +465,12 @@ export default {
         return {
             hotRankList: [],
             hotRankInfo: [],
-            isShow: 0,
+
             pageNum: 1,
             type: parseInt(this.$route.query.type),
         };
     },
-    components: { 'v-footer': footer, 'v-reg-login': RegandLogin },
+    components: { 'v-footer': footer },
     mounted() {
         console.log(this.type);
         if (this.type === 2) {
@@ -485,9 +481,10 @@ export default {
         }
     },
     methods: {
-        showDialog(visible) {
-            this.isShow = visible;
-        },
+        ...mapMutations({
+            setPermissionModal: 'setPermissionModal',
+        }),
+
         toPage2(name) {
             this.$router.replace({ name: name });
         },
@@ -556,7 +553,7 @@ export default {
         // 关注
         focusExpert(id) {
             if (!Cookie.get('token')) {
-                this.isShow = 1;
+                this.setPermissionModal(1);
             } else {
                 let param = {
                     id: id,
@@ -582,7 +579,7 @@ export default {
         // 取消关注
         cancelFocusExpert(id) {
             if (!Cookie.get('token')) {
-                this.isShow = 1;
+                this.setPermissionModal(1);
             } else {
                 let param = {
                     id: id,

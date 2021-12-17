@@ -283,24 +283,21 @@
                 </div>
             </div>
         </div>
-        <v-reg-login
-            :isShow="isShow"
-            @dialogVisibleEvent="showDialog"
-        ></v-reg-login>
         <v-footer></v-footer>
     </div>
 </template>
 
 <script>
-import footer from '../../compent/footer/index.vue';
+import { mapMutations } from 'vuex';
+import footer from '../../components/footer/index.vue';
 import { Cookie } from '../../api/cookie';
-import RegandLogin from '../../compent/regAndLogin/index.vue';
+
 export default {
     name: 'index',
     data() {
         return {
             isNum: 1,
-            isShow: 0,
+           
             matchList: [],
             allNum: 0,
             sportId: '',
@@ -310,13 +307,17 @@ export default {
             tabNum: 1,
         };
     },
-    components: { 'v-footer': footer, 'v-reg-login': RegandLogin },
+    components: { 'v-footer': footer,  },
     mounted() {
         this.getMatch(0);
         this.getWeekStartAndEnd();
         this.getMatchSportsType();
     },
     methods: {
+         ...mapMutations({
+            setPermissionModal: 'setPermissionModal',
+        }),
+
         // 获取指定日期的那一周的开始、结束日期
         getWeekStartAndEnd() {
             var now = new Date();
@@ -337,20 +338,11 @@ export default {
             }
             this.matchDateList.push(arr);
         },
-        showDialog(visible) {
-            this.isShow = visible;
-        },
+       
         toPage(name, id) {
-            // let routeData = this.$router.resolve({
-            //   name: name,
-            //   query: {id: id}
-            // })
-            // window.open(routeData.href, '_blank')
-            // if (!Cookie.get('token')) {
-            //   this.isShow = 2
-            // } else {
+           
             this.$router.replace({ name: name, query: { id: id } });
-            // }
+            
         },
         toPage1(id, type) {
             if (type === 0) {
@@ -430,7 +422,7 @@ export default {
                     },
                 );
             } else {
-                this.isShow = 1;
+                this.setPermissionModal(1);
             }
         },
         // 取消预约

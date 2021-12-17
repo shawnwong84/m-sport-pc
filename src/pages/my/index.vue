@@ -827,7 +827,7 @@
 </template>
 
 <script>
-import footer from '../../compent/footer/index.vue';
+import footer from '../../components/footer/index.vue';
 import ProgressBar from 'vue-simple-progress';
 import { Cookie } from '../../api/cookie';
 export default {

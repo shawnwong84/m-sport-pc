@@ -1,7 +1,10 @@
 <template>
     <div>
-        <div class="header-modal" v-if="isShow === 1 || isShow === 2"></div>
-        <div class="login-window" v-if="isShow === 1">
+        <div
+            class="header-modal"
+            v-if="getPermissionModal === 1 || getPermissionModal === 2"
+        ></div>
+        <div class="login-window" v-if="getPermissionModal === 1">
             <div>
                 <img
                     src="../../assets/image/close.png"
@@ -97,7 +100,7 @@
                 </div>
             </div>
         </div>
-        <div class="reg-window" v-if="isShow === 2">
+        <div class="reg-window" v-if="getPermissionModal === 2">
             <div>
                 <img
                     src="../../assets/image/close.png"
@@ -120,11 +123,17 @@
                 </div>
                 <div class="input-item">
                     <div class="send-input">
-                        <div class="common-input-left">验证码</div>
+                        <div class="common-input-left">
+                            <img
+                                src="../../assets/image/code-icon.png"
+                                alt=""
+                                width="20px"
+                            />
+                        </div>
                         <input
                             type="text"
                             v-model="smsCode"
-                            placeholder="获取并输入验证码"
+                            placeholder="请输入验证码"
                             maxlength="8"
                         />
                     </div>
@@ -139,7 +148,13 @@
                     </div>
                 </div>
                 <div class="input-item">
-                    <div class="common-input-left">用户名</div>
+                    <div class="common-input-left">
+                        <img
+                            src="../../assets/image/user-avatar-icon.png"
+                            alt=""
+                            width="20px"
+                        />
+                    </div>
                     <input
                         type="text"
                         v-model="nickName"
@@ -225,6 +240,7 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex';
 import { Cookie } from '../../api/cookie';
 
 export default {
@@ -248,27 +264,30 @@ export default {
             password: '',
         };
     },
-    props: ['isShow'],
+    computed: { ...mapGetters(['getPermissionModal']) },
     methods: {
+        ...mapMutations({
+            setPermissionModal: 'setPermissionModal',
+        }),
         toPage(name) {
-            this.$emit('dialogVisibleEvent', 0);
+            this.setPermissionModal(0);
             this.$router.push({ name: name });
         },
         toMy() {
-            this.$emit('dialogVisibleEvent', 0);
+            this.setPermissionModal(0);
             this.$router.push({ name: 'my', query: { pwd: 1 } });
         },
         checkLogin() {
-            this.$emit('dialogVisibleEvent', 1);
+            this.setPermissionModal(1);
         },
         checkReg() {
-            this.$emit('dialogVisibleEvent', 2);
+            this.setPermissionModal(2);
         },
         closeLogin() {
-            this.$emit('dialogVisibleEvent', 0);
+            this.setPermissionModal(0);
         },
         closeReg() {
-            this.$emit('dialogVisibleEvent', 0);
+            this.setPermissionModal(0);
         },
         checkGou() {
             if (this.isGou === 1) {
@@ -454,8 +473,8 @@ export default {
     height: 100%;
     left: 0;
     top: 0;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 101;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 998;
 }
 .login-window {
     position: fixed;
@@ -465,7 +484,7 @@ export default {
     top: 20%;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 199;
+    z-index: 999;
 }
 .reg-window {
     position: fixed;
@@ -475,7 +494,7 @@ export default {
     top: 20%;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 102;
+    z-index: 999;
 }
 
 .close {
@@ -487,7 +506,7 @@ export default {
     cursor: pointer;
 }
 .window-inner {
-    padding: 42px 60px 60px;
+    padding: 42px 70px 60px;
     .modal-title {
         font-size: 22px;
         font-weight: 600;
@@ -496,7 +515,7 @@ export default {
 
     .input-item {
         width: 100%;
-        height: 48px;
+        height: 42px;
         @include flexCenter();
         position: relative;
         margin-bottom: 25px;
@@ -504,7 +523,7 @@ export default {
         input {
             border-radius: 8px;
 
-            height: 48px;
+            height: 42px;
             width: 100%;
             border-radius: 8px;
             background: transparent;
@@ -529,11 +548,11 @@ export default {
             border-radius: 8px 0 0 8px;
             @include flexCenter();
             font-size: 14px;
-            color: #333333;
+            color: #8f8f8f;
         }
         .input-password {
             width: 100%;
-            height: 48px;
+            height: 42px;
             position: relative;
 
             input {
@@ -552,7 +571,7 @@ export default {
             }
         }
         .send-input {
-            width: 240px;
+            width: 200px;
             height: 100%;
             position: relative;
             input {
@@ -577,7 +596,7 @@ export default {
         }
     }
     .sub-box {
-        margin-top: 30px;
+        margin-top: 50px;
         .submit {
             width: 100%;
             height: 46px;

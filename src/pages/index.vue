@@ -1,9 +1,6 @@
 <template>
     <div class="bg-home">
-        <v-reg-login
-            :isShow="isShow"
-            @dialogVisibleEvent="showDialog"
-        ></v-reg-login>
+       
         <div class="content_box" id="searchBar" ref="app">
             <div
                 class="header-content"
@@ -325,9 +322,8 @@
 
 <script>
 import { Cookie } from '../api/cookie.js';
-import RegandLogin from '../compent/regAndLogin/index.vue';
 import VueQr from 'vue-qr';
-import { mapGetters } from 'vuex';
+import { mapGetters ,mapMutations} from 'vuex';
 export default {
     name: 'index',
     provide() {
@@ -339,7 +335,7 @@ export default {
         return {
             infoData: [],
             active: true,
-            isShow: 0,
+          
             isshowRegAndLogin: false,
             name: '',
             token: '',
@@ -350,7 +346,6 @@ export default {
         ...mapGetters(['getExpansion']),
     },
     components: {
-        'v-reg-login': RegandLogin,
         VueQr,
     },
     mounted() {
@@ -366,9 +361,10 @@ export default {
         }
     },
     methods: {
-        showDialog(visible) {
-            this.isShow = visible;
-        },
+         ...mapMutations({
+            setPermissionModal: 'setPermissionModal',
+        }),
+       
         down() {
             window.open('http://dl.hszhibo.live');
         },
@@ -400,10 +396,10 @@ export default {
         },
 
         checkLogin() {
-            this.isShow = 1;
+           this.setPermissionModal(1)
         },
         checkReg() {
-            this.isShow = 2;
+           this.setPermissionModal(2)
         },
 
         destroyed() {
@@ -687,7 +683,7 @@ export default {
     position: fixed;
     top: 40%;
     right: 0;
-    z-index: 999;
+    z-index: 110;
     width: 60px;
     height: 480px;
     background: #fff;

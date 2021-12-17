@@ -749,21 +749,19 @@
                 </div>
             </div>
         </div>
-        <v-reg-login
-            :isShow="isShowPop"
-            @dialogVisibleEvent="showDialog"
-        ></v-reg-login>
+
         <v-footer class=""></v-footer>
     </div>
 </template>
 
 <script>
-import footer from '../../compent/footer/index.vue';
-import chatEmoji from '../../compent/chatEmoji/index.vue';
+import { mapMutations } from 'vuex';
+import footer from '../../components/footer/index.vue';
+import chatEmoji from '../../components/chatEmoji/index.vue';
 import emoji from '../../config/emoji';
 import { Cookie } from '../../api/cookie';
 import Swiper from 'swiper';
-import RegandLogin from '../../compent/regAndLogin/index.vue';
+
 export default {
     name: 'index',
     data() {
@@ -783,7 +781,7 @@ export default {
             showModal: false,
             isPlay: false,
             matchList: [],
-            isShowPop: 0,
+
             isShowWindow: false,
             isFrist: false,
             giftList: [],
@@ -823,19 +821,22 @@ export default {
         clearInterval(this.timerToken);
     },
     methods: {
+        ...mapMutations({
+            setPermissionModal: 'setPermissionModal',
+        }),
         toMy() {
             if (Cookie.get('token')) {
                 this.$router.replace({ name: 'my', query: { num: 4 } });
             } else {
-                this.isShowPop = 1;
+                this.setPermissionModal(1);
             }
         },
         toRegister() {
-            this.isShowPop = 2;
+            this.setPermissionModal(2);
             this.isShowWindow = false;
         },
         toLogin() {
-            this.isShowPop = 1;
+            this.setPermissionModal(1);
             this.isShowWindow = false;
         },
         toPage(name) {
@@ -843,9 +844,6 @@ export default {
         },
         toPage1(name, num, type) {
             this.$router.push({ name: name, query: { num: num, type: type } });
-        },
-        showDialog(visible) {
-            this.isShowPop = visible;
         },
         closeWindow() {
             this.isShowWindow = false;
@@ -1351,13 +1349,13 @@ export default {
                     }
                 });
             } else {
-                this.isShowPop = 1;
+                this.setPermissionModal(1);
             }
         },
         // 关注
         userFollowAnchor(id) {
             if (!Cookie.get('token')) {
-                this.isShowPop = 1;
+                this.setPermissionModal(1);
             } else {
                 let param = {
                     id: id,
@@ -1383,7 +1381,7 @@ export default {
         // 取消关注
         userUnFollowAnchor(id) {
             if (!Cookie.get('token')) {
-                this.isShowPop = 1;
+                this.setPermissionModal(1);
             } else {
                 let param = {
                     id: id,
@@ -1424,7 +1422,7 @@ export default {
                     },
                 );
             } else {
-                this.isShowPop = 1;
+                this.setPermissionModal(1);
             }
         },
         // 取消预约

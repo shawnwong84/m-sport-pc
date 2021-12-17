@@ -528,17 +528,15 @@
                 </div>
             </div>
         </div>
-        <v-reg-login
-            :isShow="isShowPop"
-            @dialogVisibleEvent="showDialog"
-        ></v-reg-login>
+
         <v-footer class=""></v-footer>
     </div>
 </template>
 
 <script>
-import footer from '../../compent/footer/index.vue';
-import RegandLogin from '../../compent/regAndLogin/index.vue';
+import { mapMutations } from 'vuex';
+import footer from '../../components/footer/index.vue';
+import RegandLogin from '../../components/regAndLogin/index.vue';
 export default {
     name: 'index',
     data() {
@@ -548,7 +546,6 @@ export default {
             liveList: [],
             today: '',
             matchTime: '',
-            isShowPop: 0,
         };
     },
     components: { 'v-footer': footer, 'v-reg-login': RegandLogin },
@@ -557,6 +554,9 @@ export default {
         this.getMatchLiveScore();
     },
     methods: {
+        ...mapMutations({
+            setPermissionModal: 'setPermissionModal',
+        }),
         toPage1(id, type) {
             if (type === 0) {
                 let routeData = this.$router.resolve({
@@ -574,9 +574,7 @@ export default {
                 // this.$router.replace({name: 'basketBallDeatil', query: {id: id}})
             }
         },
-        showDialog(visible) {
-            this.isShowPop = visible;
-        },
+
         getMatch(num) {
             this.tabNum = num;
             this.getToday();

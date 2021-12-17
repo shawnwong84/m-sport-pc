@@ -126,7 +126,7 @@
 
 <script>
 import Swiper from 'swiper';
-import footer from '../../compent/footer/index.vue';
+import footer from '../../components/footer/index.vue';
 export default {
     name: 'index',
     data() {

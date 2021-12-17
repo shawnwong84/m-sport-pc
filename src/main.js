@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import router from './router';
-import Store from './vuex';
+import Store from './store';
 import App from './App';
 import './assets/css/content.css';
 import './assets/css/base.css';
@@ -70,7 +70,6 @@ Vue.use(VueLazyload, {
     attempt: 2,
 });
 Vue.config.productionTip = false;
-Vue.prototype.$Platform = require('./assets/platform/main/js/base');
 /* eslint-disable no-new */
 new Vue({
     router,

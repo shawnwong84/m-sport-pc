@@ -633,18 +633,16 @@
                 </div>
             </div>
         </div>
-        <v-reg-login
-            :isShow="isShow"
-            @dialogVisibleEvent="showDialog"
-        ></v-reg-login>
+        
         <v-footer></v-footer>
     </div>
 </template>
 
 <script>
-import footer from '../../compent/footer/index.vue';
+import { mapMutations } from 'vuex';
+import footer from '../../components/footer/index.vue';
 import { Cookie } from '../../api/cookie.js';
-import RegandLogin from '../../compent/regAndLogin/index.vue';
+
 import Swiper from 'swiper';
 export default {
     name: 'Home',
@@ -656,7 +654,6 @@ export default {
             sportNum: 0,
             isNum: 0,
             videoType: '',
-            isShow: 0,
             isshowMax: '',
             roomId: '',
             hotList: [],
@@ -685,7 +682,7 @@ export default {
             activeName: '1', //选项卡
         };
     },
-    components: { 'v-footer': footer, 'v-reg-login': RegandLogin },
+    components: { 'v-footer': footer,  },
     mounted() {
         this.getLiveStreamingToPc();
         this.getBannerList1();
@@ -700,6 +697,9 @@ export default {
         this.getBasketBall();
     },
     methods: {
+         ...mapMutations({
+            setPermissionModal: 'setPermissionModal',
+        }),
         toPageNew(id) {
             let routeData = this.$router.resolve({
                 path: '/newDeatil',
@@ -719,9 +719,7 @@ export default {
             });
             window.open(routeData.href, '_blank');
         },
-        showDialog(visible) {
-            this.isShow = visible;
-        },
+       
         formatTooltip(val) {
             return val / 100;
         },
@@ -954,7 +952,7 @@ export default {
                     },
                 );
             } else {
-                this.isShow = 1;
+                this.setPermissionModal(1);
             }
         },
         getBannerList1() {
@@ -1043,7 +1041,7 @@ export default {
         // 关注
         focusExpert(id) {
             if (!Cookie.get('token')) {
-                this.isShow = 1;
+                this.setPermissionModal(1);
             } else {
                 let param = {
                     id: id,
@@ -1069,7 +1067,7 @@ export default {
         // 取消关注
         cancelFocusExpert(id) {
             if (!Cookie.get('token')) {
-                this.isShow = 1;
+                this.setPermissionModal(1);
             } else {
                 let param = {
                     id: id,

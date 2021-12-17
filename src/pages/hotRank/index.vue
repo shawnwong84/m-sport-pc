@@ -1,9 +1,6 @@
 <template>
     <div>
-        <v-reg-login
-            :isShow="isShow"
-            @dialogVisibleEvent="showDialog"
-        ></v-reg-login>
+       
         <div class="fx justify-center">
             <div class="new">
                 <div class="new-tab">
@@ -458,8 +455,9 @@
 
 <script>
 import Swiper from 'swiper';
-import footer from '../../compent/footer/index.vue';
-import RegandLogin from '../../compent/regAndLogin';
+import { mapMutations } from 'vuex';
+import footer from '../../components/footer/index.vue';
+
 import { Cookie } from '../../api/cookie';
 export default {
     name: 'index',
@@ -471,14 +469,14 @@ export default {
             expertsList: [],
             hotMatchList: [],
             pageNum: 1,
-            isShow: 0,
+          
             pageNum1: 1,
             ball: 0,
             tagNum: 1,
             matchHotRankList: [],
         };
     },
-    components: { 'v-footer': footer, 'v-reg-login': RegandLogin },
+    components: { 'v-footer': footer,},
     mounted() {
         this.getMatch();
         this.getHotRankListByBall();
@@ -487,9 +485,9 @@ export default {
         this.getArticleListByTagId(0);
     },
     methods: {
-        showDialog(visible) {
-            this.isShow = visible;
-        },
+          ...mapMutations({
+            setPermissionModal: 'setPermissionModal',
+        }),
         checkTagNum(num) {
             this.tagNum = num;
         },
@@ -599,7 +597,7 @@ export default {
         // 关注
         focusExpert(id) {
             if (!Cookie.get('token')) {
-                this.isShow = 1;
+                this.setPermissionModal(1);
             } else {
                 let param = {
                     id: id,
@@ -621,7 +619,7 @@ export default {
         // 取消关注
         cancelFocusExpert(id) {
             if (!Cookie.get('token')) {
-                this.isShow = 1;
+                 this.setPermissionModal(1);
             } else {
                 let param = {
                     id: id,
