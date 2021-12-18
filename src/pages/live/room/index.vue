@@ -104,11 +104,23 @@
                                     alt=""
                                     src="../../../assets/image/live/follow-icon.png"
                                 />
-                                <span>关注</span>
+                                <span
+                                    v-if="!roomInfo.follow"
+                                    @click="userFollowAnchor(roomInfo.roomId)"
+                                    >关注</span
+                                >
+                                <span
+                                    v-if="roomInfo.follow"
+                                    @click="userUnFollowAnchor(roomInfo.roomId)"
+                                    >已关注</span
+                                >
                                 <div class="line"></div>
                                 <span>{{ roomInfo.follows }}</span>
                             </div>
-                            <div class="room-follow-info">
+                            <div
+                                class="room-follow-info"
+                                v-if="!roomInfo.follow"
+                            >
                                 <div class="content">
                                     <span class="follow-text">关注主播！</span>
                                     <span class="follow-des"
@@ -118,7 +130,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="room-video"></div>
+                    <div class="room-video">
+                        <liveVideo :playUrl="roomInfo.liveUrl"></liveVideo>
+                    </div>
                 </div>
             </div>
             <div class="room-right"></div>
@@ -143,8 +157,10 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapMutations } from 'vuex';
+import { Cookie } from '../../../api/cookie';
 import liveItem from '../../../components/liveItem';
+import liveVideo from './liveVideo';
 export default {
     name: 'index',
     data() {
@@ -155,6 +171,7 @@ export default {
     },
     components: {
         liveItem,
+        liveVideo,
     },
     watch: {},
     computed: {
@@ -165,6 +182,9 @@ export default {
         this.getVideoRecommendList();
     },
     methods: {
+        ...mapMutations({
+            setPermissionModal: 'setPermissionModal',
+        }),
         // 获取房间信息
         getRoomInfo() {
             let param = {
@@ -191,6 +211,58 @@ export default {
                     }
                 },
             );
+        },
+        // 关注
+        userFollowAnchor(id) {
+            if (!Cookie.get('token')) {
+                this.setPermissionModal(1);
+            } else {
+                let param = {
+                    id: id,
+                };
+                this.$axios('post', '/match/userFollowAnchor', param).then(
+                    (res) => {
+                        if (res.code === 200) {
+                            this.$message({
+                                type: 'success',
+                                message: '关注成功',
+                            });
+                            this.getRoomInfo(2);
+                        } else {
+                            this.$message({
+                                type: 'warning',
+                                message: res.msg,
+                            });
+                        }
+                    },
+                );
+            }
+        },
+        // 取消关注
+        userUnFollowAnchor(id) {
+            if (!Cookie.get('token')) {
+                this.setPermissionModal(1);
+            } else {
+                let param = {
+                    id: id,
+                };
+                this.$axios('post', '/match/userUnFollowAnchor', param).then(
+                    (res) => {
+                        if (res.code === 200) {
+                            this.$message({
+                                type: 'success',
+                                message: '取消关注',
+                            });
+                            this.getRoomInfo(2);
+                        } else {
+                            this.$message({
+                                type: 'warning',
+                                message: res.msg,
+                            });
+                        }
+                    },
+                );
+            }
         },
 
         getFlexNum(exp) {
