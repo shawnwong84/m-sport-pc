@@ -1,6 +1,5 @@
 <template>
     <div class="bg-home">
-       
         <div class="content_box" id="searchBar" ref="app">
             <div
                 class="header-content"
@@ -323,7 +322,7 @@
 <script>
 import { Cookie } from '../api/cookie.js';
 import VueQr from 'vue-qr';
-import { mapGetters ,mapMutations} from 'vuex';
+import { mapGetters, mapMutations } from 'vuex';
 export default {
     name: 'index',
     provide() {
@@ -335,7 +334,7 @@ export default {
         return {
             infoData: [],
             active: true,
-          
+
             isshowRegAndLogin: false,
             name: '',
             token: '',
@@ -361,10 +360,10 @@ export default {
         }
     },
     methods: {
-         ...mapMutations({
+        ...mapMutations({
             setPermissionModal: 'setPermissionModal',
         }),
-       
+
         down() {
             window.open('http://dl.hszhibo.live');
         },
@@ -396,10 +395,10 @@ export default {
         },
 
         checkLogin() {
-           this.setPermissionModal(1)
+            this.setPermissionModal(1);
         },
         checkReg() {
-           this.setPermissionModal(2)
+            this.setPermissionModal(2);
         },
 
         destroyed() {
@@ -418,7 +417,6 @@ export default {
             } else {
                 this.$router.push({ name: name });
             }
-            
         },
         toSearch() {
             // console.log(this.searchContent)
@@ -602,7 +600,7 @@ export default {
 }
 
 .content_box {
-    background-image: url('https://1-1305184012.cos.ap-nanjing.myqcloud.com/live/bg2.png');
+    background-image: url('../assets/image/common/sport-bg.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

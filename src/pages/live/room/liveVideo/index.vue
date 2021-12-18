@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import Player from 'xgplayer';
-import HlsJsPlayer from 'xgplayer-hls.js';
-import FlvJsPlayer from 'xgplayer-flv.js';
+import DPlayer from 'dplayer';
+import Flv from 'flv.js';
+import Hls from 'hls.js';
 export default {
     name: 'index',
     data() {
@@ -41,41 +41,62 @@ export default {
     mounted() {},
     methods: {
         playHlsVideo() {
-            this.player = new HlsJsPlayer({
-                id: 'player-room',
-                url: this.playUrl,
-                isLive: true, //直播场景设置为true
-                useHls: true,
+            this.player = new DPlayer({
+                container: document.getElementById('player-room'),
                 autoplay: true,
-                width: '100%',
-                height: '100%',
+                volume: 0.7, //不能自动播放
                 lang: 'zh-cn',
-                //hlsOpts: {
-                //  xhrSetup: function(xhr, url) {
-                //    xhr.withCredentials = true;
-                //  }
-                //} //hls.js可选配置项
+                live: true,
+                theme: '#f8413d',
+                video: {
+                    url: this.playUrl,
+                    type: 'customHls',
+
+                    customType: {
+                        customHls: function (video, player) {
+                            const hls = new Hls();
+                            hls.loadSource(video.src);
+                            hls.attachMedia(video);
+                        },
+                    },
+                },
             });
         },
         playVideo() {
-            this.player = new Player({
-                id: 'player-room',
-                url: this.playUrl,
+            this.player = new DPlayer({
+                container: document.getElementById('player-room'),
                 autoplay: true,
-                width: '100%',
-                height: '100%',
+                volume: 0.7, //不能自动播放
                 lang: 'zh-cn',
+                live: true,
+                theme: '#f8413d',
+                video: {
+                    url: this.playUrl,
+                },
             });
         },
         playFlvVideo() {
-            this.player = new FlvJsPlayer({
-                id: 'player-room',
-                isLive: true, //直播场景设置为true
-                hasVideo: true,
-                hasAudio: true,
-                flvOptionalConfig: {
-                    enableWorker: true,
-                }, //flv.js可选配置项
+            this.player = new DPlayer({
+                container: document.getElementById('player-room'),
+                autoplay: true,
+                volume: 0.7, //不能自动播放
+                lang: 'zh-cn',
+                live: true,
+                theme: '#f8413d',
+                video: {
+                    url: this.playUrl,
+                    type: 'customFlv',
+                    customType: {
+                        customFlv: function (video, player) {
+                            const flvPlayer = Flv.createPlayer({
+                                type: 'flv',
+                                url: video.src,
+                            });
+                            flvPlayer.attachMediaElement(video);
+                            flvPlayer.load();
+                        },
+                    },
+                },
             });
         },
     },
@@ -94,12 +115,12 @@ export default {
             height: 100%;
             // object-fit: cover;
         }
-        ::v-deep .xgplayer-enter {
-            background: url('../../../../assets/image/live/video-player-bg.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
+        // ::v-deep .xgplayer-enter {
+        //     background: url('../../../../assets/image/live/video-player-bg.png');
+        //     background-size: cover;
+        //     background-position: center;
+        //     background-repeat: no-repeat;
+        // }
     }
 }
 </style>

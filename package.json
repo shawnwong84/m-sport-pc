@@ -10,10 +10,14 @@
     },
     "dependencies": {
         "core-js": "^3.6.5",
+        "dplayer": "^1.26.0",
+        "flv.js": "^1.6.2",
+        "hls.js": "^1.1.2",
         "postcss-preset-env": "^6.7.0",
         "sass": "^1.26.5",
         "sass-loader": "^8.0.2",
         "vue": "^2.6.11",
+        "vue-marquee-text-component": "1.1.1",
         "xgplayer": "^2.31.4",
         "xgplayer-flv.js": "^2.3.0",
         "xgplayer-hls.js": "^2.6.1"

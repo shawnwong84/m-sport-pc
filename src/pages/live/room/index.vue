@@ -135,7 +135,9 @@
                     </div>
                 </div>
             </div>
-            <div class="room-right"></div>
+            <div class="room-right">
+                <liveChat :roomInfo="roomInfo"></liveChat>
+            </div>
         </div>
         <div class="recommend-live">
             <div class="recommend-title">推荐直播</div>
@@ -161,6 +163,7 @@ import { mapGetters, mapMutations } from 'vuex';
 import { Cookie } from '../../../api/cookie';
 import liveItem from '../../../components/liveItem';
 import liveVideo from './liveVideo';
+import liveChat from './liveChat';
 export default {
     name: 'index',
     data() {
@@ -172,6 +175,7 @@ export default {
     components: {
         liveItem,
         liveVideo,
+        liveChat,
     },
     watch: {},
     computed: {
