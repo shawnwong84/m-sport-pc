@@ -133,6 +133,7 @@
                     <div class="room-video">
                         <liveVideo :playUrl="roomInfo.liveUrl"></liveVideo>
                     </div>
+                    <gift></gift>
                 </div>
             </div>
             <div class="room-right">
@@ -164,6 +165,7 @@ import { Cookie } from '../../../api/cookie';
 import liveItem from '../../../components/liveItem';
 import liveVideo from './liveVideo';
 import liveChat from './liveChat';
+import gift from './gift';
 export default {
     name: 'index',
     data() {
@@ -176,6 +178,7 @@ export default {
         liveItem,
         liveVideo,
         liveChat,
+        gift,
     },
     watch: {},
     computed: {

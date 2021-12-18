@@ -15,7 +15,7 @@
                             :class="showDanmu ? 'show' : 'hide'"
                             @mouseover="mouseover2()"
                             @mouseleave="mouseleave2"
-                            @click="toPage('room', roomId)"
+                            @click="toPage('/live/room', roomId)"
                         >
                             进入直播间
                         </div>
@@ -225,7 +225,7 @@
                             ></div>
                             <div
                                 class="live-match-grid-saicheng"
-                                @click="toPage2('schedule')"
+                                @click="toPage2('/schedule')"
                             >
                                 <div class="live-match-grid-saicheng-img"></div>
                                 <div class="sc-text">全部赛程</div>
@@ -240,7 +240,7 @@
                         <div
                             class="hot-content-left"
                             @click="
-                                toPage('room', hotList[0] && hotList[0].roomId)
+                                toPage('/live/room', hotList[0] && hotList[0].roomId)
                             "
                         >
                             <div
@@ -299,7 +299,7 @@
                                     hotList.length,
                                 )"
                                 :key="index"
-                                @click="toPage('room', item.roomId)"
+                                @click="toPage('/live/room', item.roomId)"
                                 v-if="index < 8"
                                 class="content-right-item"
                             >
@@ -510,7 +510,7 @@
                                 </div>
                                 <div
                                     class="show-more"
-                                    @click="toPage2('footerball')"
+                                    @click="toPage2('/live/footerball')"
                                 >
                                     查看更多
                                     <i class="el-icon-arrow-right"></i>
@@ -524,7 +524,7 @@
                                         5,
                                     )"
                                     :key="item.roomId"
-                                    @click="toPage('room', item.roomId)"
+                                    @click="toPage('/live/room', item.roomId)"
                                 >
                                     <div class="sport-class-list-item">
                                         <div
@@ -576,7 +576,7 @@
                                 </div>
                                 <div
                                     class="show-more"
-                                    @click="toPage2('basketball')"
+                                    @click="toPage2('/live/basketball')"
                                 >
                                     查看更多
                                     <i class="el-icon-arrow-right"></i>
@@ -590,7 +590,7 @@
                                         5,
                                     )"
                                     :key="item.roomId"
-                                    @click="toPage('room', item.roomId)"
+                                    @click="toPage('/live/room', item.roomId)"
                                 >
                                     <div class="sport-class-list-item">
                                         <div
@@ -779,34 +779,17 @@ export default {
             this.player.dispose();
             this.playerVideo(this.roomId, data.liveUrl, data.matchCutImg, 2);
         },
-        toPage(name, id) {
+        toPage(path, id) {
             let routeData = this.$router.resolve({
-                path: name,
+                path: path,
                 query: {
                     id: id,
                 },
             });
             window.open(routeData.href, '_blank');
         },
-        toPageBall(id, type) {
-            if (type === 0) {
-                let routeData = this.$router.resolve({
-                    name: 'footballDeatil',
-                    query: { id: id },
-                });
-                window.open(routeData.href, '_blank');
-                // this.$router.replace({name: 'footballDeatil', query: {id: id}})
-            } else {
-                let routeData = this.$router.resolve({
-                    name: 'basketBallDeatil',
-                    query: { id: id },
-                });
-                window.open(routeData.href, '_blank');
-                // this.$router.replace({name: 'basketBallDeatil', query: {id: id}})
-            }
-        },
-        toPage2(name) {
-            this.$router.replace({ name: name });
+        toPage2(path) {
+            this.$router.push(path);
         },
         // 热门专家
         getHotExpert() {
