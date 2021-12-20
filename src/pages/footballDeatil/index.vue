@@ -678,7 +678,7 @@ export default {
     color: #4280dc;
 }
 .c-aa {
-    color: #caa05f;
+    color: #f8413d;
 }
 .c-76 {
     color: #76809c;
@@ -787,7 +787,7 @@ export default {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #caa05f;
+    background: #f8413d;
     margin-left: -3px;
 }
 .info-main {

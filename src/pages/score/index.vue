@@ -681,7 +681,7 @@ export default {
     font-size: 15px;
 }
 .tab-on {
-    background: linear-gradient(132deg, #ebcbab 0%, #dbb170 100%);
+    background: linear-gradient(180deg, #ff8d86 0%, #f8413d 100%);
     color: #693d13;
 }
 .fenxi {

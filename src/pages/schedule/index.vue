@@ -235,11 +235,7 @@
                                             @click="getAppoinment(item2.id)"
                                         >
                                             <div class="fx">
-                                                <div class="mr-5">
-                                                    <img
-                                                        src="../../assets/image/yuding.png"
-                                                    />
-                                                </div>
+                                                
                                                 <div style="padding-top: 2px">
                                                     预定
                                                 </div>
@@ -494,11 +490,11 @@ export default {
     align-items: center;
 }
 .all-left-li:hover {
-    background: #f8e6c9;
+    background: #f8413d;
     color: #693d13;
 }
 .c-aa {
-    color: #caa05f;
+    color: #f8413d;
     font-weight: 600;
 }
 .all-tab {
@@ -516,7 +512,7 @@ export default {
     font-size: 15px;
 }
 .tab-on {
-    background: linear-gradient(132deg, #ebcbab 0%, #dbb170 100%);
+    background: linear-gradient(180deg, #ff8d86 0%, #f8413d 100%);
     border-radius: 3px;
     color: #693d13;
 }
@@ -531,7 +527,7 @@ export default {
 }
 .nav {
     color: #693d13;
-    background: #f8e6c9;
+    background: #f8413d;
 }
 .avatar {
     border-radius: 50%;
@@ -572,7 +568,7 @@ export default {
 .live-btn {
     width: 88px;
     height: 34px;
-    background: #ff5338 linear-gradient(132deg, #ebcbab 0%, #dbb170 100%);
+    background: #ff5338 linear-gradient(180deg, #ff8d86 0%, #f8413d 100%);
     border-radius: 3px;
     font-weight: 400;
     color: #693d13;
@@ -587,12 +583,12 @@ export default {
     height: 34px;
     background: #ffffff;
     border-radius: 2px;
-    border: 1px solid #caa05f;
+    border: 1px solid #f8413d;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 10px;
-    color: #caa05f;
+    color: #f8413d;
     cursor: pointer;
 }
 .over-btn {
@@ -611,7 +607,7 @@ export default {
 .yud-btn2 {
     width: 88px;
     height: 34px;
-    background: #ff5338 linear-gradient(132deg, #ebcbab 0%, #dbb170 100%);
+    background: #ff5338 linear-gradient(180deg, #ff8d86 0%, #f8413d 100%);
     border-radius: 2px;
     color: #693d13;
     font-weight: 400;

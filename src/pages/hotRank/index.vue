@@ -679,10 +679,10 @@ export default {
     cursor: pointer;
 }
 .tab-li {
-    color: #caa05f;
+    color: #f8413d;
     width: 95px;
     text-align: center;
-    border-bottom: 2px solid #caa05f;
+    border-bottom: 2px solid #f8413d;
 }
 .more-new {
     color: #d5d5d5;
@@ -845,7 +845,7 @@ export default {
     cursor: pointer;
 }
 .ball-li {
-    background: linear-gradient(132deg, #ebcbab 0%, #dbb170 100%);
+    background: linear-gradient(180deg, #ff8d86 0%, #f8413d 100%);
     box-shadow: 0px 2px 4px 0px rgba(221, 181, 122, 0.3);
     color: #693d13;
 }
@@ -886,7 +886,7 @@ export default {
     cursor: pointer;
 }
 .ygz {
-    background: linear-gradient(132deg, #ebcbab 0%, #dbb170 100%);
+    background: linear-gradient(180deg, #ff8d86 0%, #f8413d 100%);
     color: #ffffff;
 }
 .wgz {

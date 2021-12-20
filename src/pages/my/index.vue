@@ -1387,17 +1387,17 @@ export default {
     cursor: pointer;
 }
 .active {
-    background: #caa05f !important;
+    background: #f8413d !important;
     color: white !important;
 }
 .info-btn {
-    background: #caa05f;
+    background: #f8413d;
     color: white;
     padding: 5px 10px;
     cursor: pointer;
 }
 .update-sumbit {
-    background: #caa05f;
+    background: #f8413d;
     color: white;
     width: 100px;
     text-align: center;
@@ -1518,7 +1518,7 @@ select {
     text-align: center;
 }
 .next-btn {
-    background: #caa05f;
+    background: #f8413d;
     width: 80px;
     line-height: 35px;
     border-radius: 30px;
@@ -1535,7 +1535,7 @@ select {
     border-top: 1px solid #eaeaea;
     border-left: 1px solid #eaeaea;
     border-bottom: 1px solid #eaeaea;
-    border-right: solid 7px #caa05f;
+    border-right: solid 7px #f8413d;
     border-radius: 4px;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -1591,7 +1591,7 @@ select {
     margin-top: 20px;
 }
 .bg-yellow {
-    background: #caa05f;
+    background: #f8413d;
     color: white;
 }
 .bg-gary {
@@ -1607,7 +1607,7 @@ select {
 .li-active {
     width: 10px;
     height: 10px;
-    background: #caa05f;
+    background: #f8413d;
     border-radius: 50%;
     margin-right: 10px;
 }

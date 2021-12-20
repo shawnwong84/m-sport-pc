@@ -41,6 +41,12 @@
     align-items: center;
     justify-content: space-around;
 }
+@mixin flexCenterWrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center
+}
 
 @mixin flexStart {
     display: flex;
