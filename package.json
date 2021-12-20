@@ -45,19 +45,5 @@
         "vue-video-player": "^5.0.2",
         "vuetify": "^2.4.9",
         "vuex": "^3.4.0"
-    },
-    "eslintConfig": {
-        "root": true,
-        "env": {
-            "node": true
-        },
-        "extends": [
-            "plugin:vue/essential",
-            "eslint:recommended"
-        ],
-        "parserOptions": {
-            "parser": "babel-eslint"
-        },
-        "rules": {}
     }
 }
