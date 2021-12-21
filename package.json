@@ -9,6 +9,7 @@
         "prettier": "prettier --config .prettierrc.js --write --list-different \"./**/*.{js,jsx,ts,tsx,css,scss,less,json,md,vue}\" "
     },
     "dependencies": {
+        "add": "^2.0.6",
         "core-js": "^3.6.5",
         "dplayer": "^1.26.0",
         "flv.js": "^1.6.2",
@@ -17,10 +18,12 @@
         "sass": "^1.26.5",
         "sass-loader": "^8.0.2",
         "vue": "^2.6.11",
+        "vue-chat-emoji": "^1.1.27",
         "vue-marquee-text-component": "1.1.1",
         "xgplayer": "^2.31.4",
         "xgplayer-flv.js": "^2.3.0",
-        "xgplayer-hls.js": "^2.6.1"
+        "xgplayer-hls.js": "^2.6.1",
+        "yarn": "^1.22.17"
     },
     "devDependencies": {
         "@vue/cli-plugin-babel": "~4.5.0",

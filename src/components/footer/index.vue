@@ -35,19 +35,11 @@
 
             <div class="footer-right">
                 <div class="footer-qr-app qr">
-                    <vue-qr
-                        text="http://facebook.github.io/react/"
-                        :size="68"
-                        :margin="0"
-                    />
+                    <vue-qr text="dl.mzhibo.cc" :size="68" :margin="0" />
                     <p>足球APP</p>
                 </div>
                 <div class="footer-qr-focus qr">
-                    <vue-qr
-                        text="http://facebook.github.io/react/"
-                        :size="68"
-                        :margin="0"
-                    />
+                    <vue-qr text="dl.mzhibo.cc" :size="68" :margin="0" />
                     <p>关注我们</p>
                 </div>
             </div>

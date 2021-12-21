@@ -16,7 +16,7 @@
                         :class="{ 'head-exp-left': !getExpansion }"
                         @click="toPage('home')"
                     >
-                        <img />
+                        <img src="../assets/image/logo.png" />
                         <span v-if="getExpansion">体育直播</span>
                     </div>
                     <div class="head-right">
@@ -130,7 +130,7 @@
                                 <el-popover placement="bottom" trigger="hover">
                                     <div class="header-down-qr-box">
                                         <vue-qr
-                                            text="http://facebook.github.io/react/"
+                                            text="dl.mzhibo.cc"
                                             :size="68"
                                             :margin="0"
                                             class="qr-img"
@@ -285,7 +285,7 @@
                     <el-popover placement="right" trigger="hover">
                         <div class="down-qr-box">
                             <vue-qr
-                                text="http://facebook.github.io/react/"
+                                text="dl.mzhibo.cc"
                                 :size="168"
                                 :margin="0"
                                 class="qr-img"
