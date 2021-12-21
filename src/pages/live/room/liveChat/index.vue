@@ -61,6 +61,10 @@
                             src="../../../../assets/image/live/face-icon.png"
                             alt=""
                         />
+                        <VEmojiPicker
+                            @select="selectEmoji"
+                            class="emoji-picker"
+                        />
                     </div>
                     <input
                         type="text"
@@ -83,6 +87,7 @@
 <script>
 import MarqueeText from 'vue-marquee-text-component';
 import { mapMutations } from 'vuex';
+import { VEmojiPicker } from 'v-emoji-picker';
 import { Cookie } from '../../../../api/cookie';
 export default {
     name: 'index',
@@ -100,6 +105,7 @@ export default {
     },
     components: {
         MarqueeText,
+        VEmojiPicker,
     },
     watch: {
         roomInfo: {
@@ -116,6 +122,9 @@ export default {
         ...mapMutations({
             setPermissionModal: 'setPermissionModal',
         }),
+        selectEmoji(emoji) {
+            this.sendRoomText(emoji.data);
+        },
         //登录
         userLogin() {
             this.setPermissionModal(1);
@@ -431,9 +440,22 @@ export default {
                     height: 100%;
                     @include flexCenter();
                     border-right: 1px solid #e3e3e3;
+                    position: relative;
                     img {
                         width: 18px;
                         height: 18px;
+                    }
+                    &:hover {
+                        .emoji-picker {
+                            display: block;
+                        }
+                    }
+                    .emoji-picker {
+                        position: absolute;
+                        width: 310px;
+                        bottom: 46px;
+                        left: 0;
+                        display: none;
                     }
                 }
                 input {

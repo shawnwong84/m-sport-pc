@@ -6,7 +6,7 @@
                     <div style="width: 86.5%">
                         <div class="video-logo">
                             <img
-                                src="../../assets/image/logo1.png"
+                                src="../../assets/image/noImg.png"
                                 width="150px"
                             />
                         </div>
@@ -2270,7 +2270,7 @@ export default {
     background-size: 100% 100% !important;
 }
 .prism-player {
-    background-image: url('../../assets/image/logo1.png');
+    background-image: url('../../assets/image/live/video-player-bg.png');
     background-size: cover;
     /*background-size: 100% auto;*/
     background-position: center center;

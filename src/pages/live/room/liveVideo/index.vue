@@ -48,6 +48,7 @@ export default {
                 lang: 'zh-cn',
                 live: true,
                 theme: '#f8413d',
+                logo:require('../../../../assets/image/noImg.png'),
                 video: {
                     url: this.playUrl,
                     type: 'customHls',
@@ -121,6 +122,13 @@ export default {
         //     background-position: center;
         //     background-repeat: no-repeat;
         // }
+    }
+    ::v-deep .dplayer-logo{
+        max-width: none;
+        max-height: none;
+        width: 100px;
+        right: 0px;
+        
     }
 }
 </style>
