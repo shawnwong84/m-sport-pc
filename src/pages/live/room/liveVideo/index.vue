@@ -48,7 +48,7 @@ export default {
                 lang: 'zh-cn',
                 live: true,
                 theme: '#f8413d',
-                logo:require('../../../../assets/image/noImg.png'),
+                logo: require('../../../../assets/image/live-logo.png'),
                 video: {
                     url: this.playUrl,
                     type: 'customHls',
@@ -71,6 +71,7 @@ export default {
                 lang: 'zh-cn',
                 live: true,
                 theme: '#f8413d',
+                logo: require('../../../../assets/image/live-logo.png'),
                 video: {
                     url: this.playUrl,
                 },
@@ -84,6 +85,7 @@ export default {
                 lang: 'zh-cn',
                 live: true,
                 theme: '#f8413d',
+                logo: require('../../../../assets/image/live-logo.png'),
                 video: {
                     url: this.playUrl,
                     type: 'customFlv',
@@ -123,11 +125,11 @@ export default {
         //     background-repeat: no-repeat;
         // }
     }
-    ::v-deep .dplayer-logo{
+    ::v-deep .dplayer-logo {
         max-width: none;
         max-height: none;
         width: 100px;
-        right: 0px;
+        left: calc(100% - 120px);
         
     }
 }

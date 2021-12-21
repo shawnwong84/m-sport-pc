@@ -3,10 +3,10 @@
         <div>
             <div class="video-head">
                 <div class="fx justify-between video-div">
-                    <div style="width: 86.5%">
+                    <div class="top-video-box">
                         <div class="video-logo">
                             <img
-                                src="../../assets/image/noImg.png"
+                                src="../../assets/image/live-logo.png"
                                 width="150px"
                             />
                         </div>
@@ -240,7 +240,10 @@
                         <div
                             class="hot-content-left"
                             @click="
-                                toPage('/live/room', hotList[0] && hotList[0].roomId)
+                                toPage(
+                                    '/live/room',
+                                    hotList[0] && hotList[0].roomId,
+                                )
                             "
                         >
                             <div
@@ -633,7 +636,7 @@
                 </div>
             </div>
         </div>
-        
+
         <v-footer></v-footer>
     </div>
 </template>
@@ -682,7 +685,7 @@ export default {
             activeName: '1', //选项卡
         };
     },
-    components: { 'v-footer': footer,  },
+    components: { 'v-footer': footer },
     mounted() {
         this.getLiveStreamingToPc();
         this.getBannerList1();
@@ -697,7 +700,7 @@ export default {
         this.getBasketBall();
     },
     methods: {
-         ...mapMutations({
+        ...mapMutations({
             setPermissionModal: 'setPermissionModal',
         }),
         toPageNew(id) {
@@ -719,7 +722,7 @@ export default {
             });
             window.open(routeData.href, '_blank');
         },
-       
+
         formatTooltip(val) {
             return val / 100;
         },
@@ -1718,6 +1721,17 @@ export default {
     display: flex;
     justify-content: center;
     padding-top: 34px;
+    .top-video-box {
+        width: 86.5%;
+        height: 100%;
+        position: relative;
+        .video-logo {
+            right: 24px;
+            position: absolute;
+            top: 0px;
+            z-index: 9;
+        }
+    }
 }
 .hot-content {
     width: 24%;
@@ -1966,9 +1980,10 @@ export default {
     background: #f0c682;
 }
 .go-room-btn {
-    position: relative;
-    left: 42%;
-    top: 32%;
+    position: absolute;
+    left: 50%;
+    transform: translateY(-50%, -50%);
+    top: 50%;
     z-index: 9;
     width: 130px;
     height: 48px;
@@ -2134,19 +2149,12 @@ export default {
     text-align: center;
 }
 
-.video-logo {
-    text-align: right;
-    position: relative;
-    bottom: -24px;
-    margin-right: 20px;
-    z-index: 9;
-}
-
 .video-footer {
     width: 100%;
     height: 40px;
-    position: relative;
-    top: 76%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
     z-index: 12;
     padding-right: 10px;
     padding-left: 10px;
@@ -2155,8 +2163,7 @@ export default {
         rgba(0, 0, 0, 0) 0,
         #000 100%
     ) !important;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
+    border-radius: 8px;
 }
 .hide {
     /*animation: fadeOut ease .8s;*/
@@ -2275,12 +2282,13 @@ export default {
     /*background-size: 100% auto;*/
     background-position: center center;
     background-repeat: no-repeat;
-    position: relative;
-    margin-top: -130px !important;
-    z-index: 2;
-    height: 574px !important;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    height: 100% !important;
+    border-radius: 8px;
 }
 .prism-player .prism-big-play-btn {
     background: none !important;
@@ -2293,7 +2301,6 @@ export default {
     border-top-left-radius: 10px;
 }
 video {
-    height: auto !important;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
 }
