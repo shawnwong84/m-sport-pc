@@ -157,6 +157,7 @@ export default {
     .down-right {
         width: 800px;
         height: 800px;
+        @include flexColumnStartCenter();
         .down-title {
             width: 732px;
             height: 76px;

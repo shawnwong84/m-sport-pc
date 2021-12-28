@@ -239,7 +239,80 @@ const router = new Router({
                 {
                     path: '/my',
                     name: 'my',
+                    redirect: '/my/myHome',
                     component: () => import('@/pages/my/index.vue'),
+                    children: [
+                        {
+                            path: '/my/myHome',
+                            name: 'myHome',
+                            component: () =>
+                                import('@/pages/my/myHome/index.vue'),
+                            meta: {
+                                footShow: false,
+                                requiresAuth: true,
+                            },
+                        },
+                        {
+                            path: '/my/myInfo',
+                            name: 'myInfo',
+                            component: () =>
+                                import('@/pages/my/myInfo/index.vue'),
+                            meta: {
+                                footShow: false,
+                                requiresAuth: true,
+                            },
+                        },
+                        {
+                            path: '/my/myMessage',
+                            name: 'myMessage',
+                            component: () =>
+                                import('@/pages/my/myMessage/index.vue'),
+                            meta: {
+                                footShow: false,
+                                requiresAuth: true,
+                            },
+                        },
+                        {
+                            path: '/my/myAttention',
+                            name: 'myAttention',
+                            component: () =>
+                                import('@/pages/my/myAttention/index.vue'),
+                            meta: {
+                                footShow: false,
+                                requiresAuth: true,
+                            },
+                        },
+                        {
+                            path: '/my/myOrder',
+                            name: 'myOrder',
+                            component: () =>
+                                import('@/pages/my/myOrder/index.vue'),
+                            meta: {
+                                footShow: false,
+                                requiresAuth: true,
+                            },
+                        },
+                        {
+                            path: '/my/myFeedback',
+                            name: 'myFeedback',
+                            component: () =>
+                                import('@/pages/my/myFeedback/index.vue'),
+                            meta: {
+                                footShow: false,
+                                requiresAuth: true,
+                            },
+                        },
+                        {
+                            path: '/my/myAnchor',
+                            name: 'myAnchor',
+                            component: () =>
+                                import('@/pages/my/myAnchor/index.vue'),
+                            meta: {
+                                footShow: false,
+                                requiresAuth: true,
+                            },
+                        },
+                    ],
                     meta: {
                         footShow: true,
                         requiresAuth: true,

@@ -315,6 +315,7 @@
                 </div>
             </div>
             <router-view v-if="active" class="index-wrapper"></router-view>
+            <mfooter></mfooter>
         </div>
     </div>
 </template>
@@ -322,7 +323,8 @@
 <script>
 import { Cookie } from '../api/cookie.js';
 import VueQr from 'vue-qr';
-import { mapGetters, mapMutations } from 'vuex';
+import { mapGetters, mapMutations, mapActions } from 'vuex';
+import mfooter from '../components/footer';
 export default {
     name: 'index',
     provide() {
@@ -332,7 +334,7 @@ export default {
     },
     data() {
         return {
-            infoData: [],
+            infoData: {},
             active: true,
 
             isshowRegAndLogin: false,
@@ -346,6 +348,7 @@ export default {
     },
     components: {
         VueQr,
+        mfooter,
     },
     mounted() {
         this.name = this.$route.name;
@@ -360,6 +363,9 @@ export default {
         }
     },
     methods: {
+        ...mapActions({
+            setUserInfo: 'setUserInfo',
+        }),
         ...mapMutations({
             setPermissionModal: 'setPermissionModal',
         }),
@@ -390,6 +396,7 @@ export default {
             this.$axios('post', '/user/userInfo').then((res) => {
                 if (res.code === 200) {
                     this.infoData = res.data;
+                    this.setUserInfo(res.data);
                 }
             });
         },
@@ -451,9 +458,8 @@ export default {
 
 <style scoped lang="scss">
 .index-wrapper {
-    width: 100%;
     min-height: calc(100vh - 64px);
-    min-width: 1320px;
+    min-width: 1200px;
 }
 .header-content {
     width: 100%;
