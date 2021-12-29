@@ -12,3 +12,6 @@ body {
 
     @include flexColumnStart();
 }
+.el-button--primary {
+    color: #fff !important;
+}
