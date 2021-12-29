@@ -214,18 +214,18 @@
                 </p>
             </section>
         </div>
-        <v-footer class="mt-30"></v-footer>
+      
     </div>
 </template>
 
 <script>
-import footer from '../../components/footer/index.vue';
+
 export default {
     name: 'index',
     data() {
         return {};
     },
-    components: { 'v-footer': footer },
+  
     mounted() {},
 };
 </script>

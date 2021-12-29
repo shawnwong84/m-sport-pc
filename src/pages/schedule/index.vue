@@ -279,13 +279,12 @@
                 </div>
             </div>
         </div>
-        <v-footer></v-footer>
+      
     </div>
 </template>
 
 <script>
 import { mapMutations } from 'vuex';
-import footer from '../../components/footer/index.vue';
 import { Cookie } from '../../api/cookie';
 
 export default {
@@ -303,7 +302,7 @@ export default {
             tabNum: 1,
         };
     },
-    components: { 'v-footer': footer,  },
+
     mounted() {
         this.getMatch(0);
         this.getWeekStartAndEnd();

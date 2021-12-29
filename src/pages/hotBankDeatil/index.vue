@@ -143,12 +143,12 @@
                 </div>
             </div>
         </div>
-        <v-footer class="mt-30"></v-footer>
+       
     </div>
 </template>
 
 <script>
-import footer from '../../components/footer/index.vue';
+
 export default {
     name: 'index',
     data() {
@@ -158,7 +158,7 @@ export default {
             pageNum: 1,
         };
     },
-    components: { 'v-footer': footer },
+   
     mounted() {
         this.getMatch();
         this.getHotRankList();

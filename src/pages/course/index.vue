@@ -99,18 +99,18 @@
                 + ↑ ↓键盘上下键，可对任物件上前后景位置调整<br />3、某些游戏发现抓取不到的时候，尝试关闭Aero去抓取!<br />4、OBS支援按键发话!!不想狂飙脏话的时候好用!或是有家人叫骂时很即时能反应!<br />5、断网后有可能造成直播码失效（直播码有效期8小时），需要重新获取一下直播码才可以推送成功！
             </p>
         </div>
-        <v-footer class="mt-30"></v-footer>
+       
     </div>
 </template>
 
 <script>
-import footer from '../../components/footer/index.vue';
+
 export default {
     name: 'index',
     data() {
         return {};
     },
-    components: { 'v-footer': footer },
+    
     methods: {},
 };
 </script>

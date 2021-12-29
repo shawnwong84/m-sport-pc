@@ -1,7 +1,7 @@
 <template>
     <div
         class="fx justify-center"
-        style="background: #f9fbff; padding-bottom: 30px"
+        style="background: #f9fbff; padding-bottom: 90px;"
     >
         <div class="w-1200">
             <div class="match-top">
@@ -753,7 +753,7 @@ export default {
 /*直播*/
 .hot-content {
     width: 24%;
-    height: 100%;
+    height: 160px;
     margin: 10px 5px;
     z-index: 9;
 }

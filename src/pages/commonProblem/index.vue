@@ -74,15 +74,15 @@
                 >直播上的直播页面。请关闭或是静音，请检查周围环境是否用平板电脑、手机等设备打开了自己的直播画面声音被麦克风收录进去，请关闭设备或静音
             </p>
         </div>
-        <v-footer class="mt-30"></v-footer>
+       
     </div>
 </template>
 
 <script>
-import footer from '../../components/footer/index.vue';
+
 export default {
     name: 'index',
-    components: { 'v-footer': footer },
+    
 };
 </script>
 

@@ -637,13 +637,12 @@
             </div>
         </div>
 
-        <v-footer></v-footer>
+       
     </div>
 </template>
 
 <script>
 import { mapMutations } from 'vuex';
-import footer from '../../components/footer/index.vue';
 import { Cookie } from '../../api/cookie.js';
 
 import Swiper from 'swiper';
@@ -684,7 +683,7 @@ export default {
             activeName: '1', //选项卡
         };
     },
-    components: { 'v-footer': footer },
+ 
     mounted() {
         this.getLiveStreamingToPc();
         this.getBannerList1();

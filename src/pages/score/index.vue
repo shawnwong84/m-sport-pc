@@ -529,13 +529,12 @@
             </div>
         </div>
 
-        <v-footer class=""></v-footer>
+     
     </div>
 </template>
 
 <script>
 import { mapMutations } from 'vuex';
-import footer from '../../components/footer/index.vue';
 import RegandLogin from '../../components/regAndLogin/index.vue';
 export default {
     name: 'index',
@@ -548,7 +547,7 @@ export default {
             matchTime: '',
         };
     },
-    components: { 'v-footer': footer, 'v-reg-login': RegandLogin },
+    components: {  'v-reg-login': RegandLogin },
     mounted() {
         this.getToday();
         this.getMatchLiveScore();
@@ -668,6 +667,7 @@ export default {
     width: 1200px;
     min-height: 100vh;
     padding-top: 20px;
+    margin-bottom: 30px;
 }
 .type-tab {
     padding: 2px 10px;

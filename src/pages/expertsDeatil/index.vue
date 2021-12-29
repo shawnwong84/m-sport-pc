@@ -451,12 +451,12 @@
                 </div>
             </div>
         </div>
-        <v-footer class="mt-30"></v-footer>
+       
     </div>
 </template>
 
 <script>
-import footer from '../../components/footer/index.vue';
+
 import { mapMutations } from 'vuex';
 import { Cookie } from '../../api/cookie';
 export default {
@@ -470,7 +470,7 @@ export default {
             type: parseInt(this.$route.query.type),
         };
     },
-    components: { 'v-footer': footer },
+  
     mounted() {
         console.log(this.type);
         if (this.type === 2) {

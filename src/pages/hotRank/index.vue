@@ -449,14 +449,14 @@
                 </div>
             </div>
         </div>
-        <v-footer class="mt-30"></v-footer>
+        
     </div>
 </template>
 
 <script>
 import Swiper from 'swiper';
 import { mapMutations } from 'vuex';
-import footer from '../../components/footer/index.vue';
+
 
 import { Cookie } from '../../api/cookie';
 export default {
@@ -476,7 +476,7 @@ export default {
             matchHotRankList: [],
         };
     },
-    components: { 'v-footer': footer,},
+  
     mounted() {
         this.getMatch();
         this.getHotRankListByBall();
