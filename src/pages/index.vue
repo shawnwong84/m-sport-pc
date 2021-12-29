@@ -248,21 +248,21 @@
                                                 />
                                                 <span>个人中心</span>
                                             </div>
-                                            <div class="nav-item">
+                                            <div class="nav-item"  @click="toPage('myAttention')">
                                                 <img
                                                     src="../assets/image/header/follow-icon.png"
                                                     alt=""
                                                 />
                                                 <span>我的关注</span>
                                             </div>
-                                            <div class="nav-item">
+                                            <div class="nav-item" @click="toPage('myMessage')">
                                                 <img
                                                     src="../assets/image/header/message-icon.png"
                                                     alt=""
                                                 />
                                                 <span>我的消息</span>
                                             </div>
-                                            <div class="nav-item">
+                                            <div class="nav-item" @click="toPage('myAnchor')">
                                                 <img
                                                     src="../assets/image/header/video-living-icon.png"
                                                     alt=""
@@ -297,7 +297,7 @@
                         </div>
                     </el-popover>
                 </div>
-                <div class="nav-item start-living">
+                <div class="nav-item start-living" @click="toPage('myAnchor')">
                     <div class="nav-icon"></div>
                     <span>开播</span>
                 </div>
