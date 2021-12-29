@@ -173,7 +173,7 @@
                                     src="../assets/image/header-live-icon.png"
                                     alt=""
                                 />
-                                <span @click="toPage('my', 7)">开播</span>
+                                <span @click="toPage('myAnchor')">开播</span>
                             </div>
                             <div class="fx align-items" v-if="!token">
                                 <div class="ml-5 cursor fx align-items">
