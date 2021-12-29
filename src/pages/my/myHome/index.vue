@@ -6,6 +6,9 @@
 -->
 <template>
     <div class="my-home">
+        <div class="my-head">
+            <div class="title">基本资料</div>
+        </div>
         <div class="change-info-btn" @click="toPage('/my/myInfo')">
             修改资料
         </div>
@@ -319,10 +322,25 @@ export default {
     width: 100%;
     @include flexColumnStart();
     position: relative;
+    .my-head {
+        width: 100%;
+        height: 52px;
+        border-bottom: 1px solid $primary-color;
+        .title {
+            width: 150px;
+            height: 52px;
+            background: linear-gradient(90deg, #ff8d86 0%, #f8413d 100%);
+            border-radius: 8px 0px 0px 0px;
+            @include flexCenter();
+            font-weight: 500;
+            color: #ffffff;
+            font-size: 16px;
+        }
+    }
     .change-info-btn {
         position: absolute;
         right: 30px;
-        top: 30px;
+        top: 80px;
         z-index: 1;
         width: 76px;
         height: 30px;

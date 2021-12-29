@@ -820,7 +820,7 @@ export default {
             .name {
                 font-size: 14px;
                 color: #333;
-                width: 90px;
+                width: 180px;
                 @include textEllipsis();
                 font-weight: 500;
                 margin-bottom: 5px;
