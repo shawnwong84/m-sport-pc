@@ -127,15 +127,15 @@ const router = new Router({
                         requiresAuth: false,
                     },
                 },
-                {
-                    path: '/hotRank',
-                    name: 'hotRank',
-                    component: () => import('@/pages/hotRank/index.vue'),
-                    meta: {
-                        footShow: true,
-                        requiresAuth: false,
-                    },
-                },
+                // {
+                //     path: '/hotRank',
+                //     name: 'hotRank',
+                //     component: () => import('@/pages/hotRank/index.vue'),
+                //     meta: {
+                //         footShow: true,
+                //         requiresAuth: false,
+                //     },
+                // },
                 {
                     path: '/hotBankDeatil',
                     name: 'hotBankDeatil',

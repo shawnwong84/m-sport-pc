@@ -50,7 +50,7 @@
 <script>
 import VueQr from 'vue-qr';
 export default {
-    name: 'footer',
+    name: 'mfooter',
     data() {
         return {};
     },

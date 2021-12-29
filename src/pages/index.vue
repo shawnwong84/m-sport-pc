@@ -110,7 +110,7 @@
                             >
                                 资讯
                             </div>
-                            <div
+                            <!-- <div
                                 class="li"
                                 @click="toPage('hotRank')"
                                 :class="
@@ -122,7 +122,7 @@
                                 "
                             >
                                 有料
-                            </div>
+                            </div> -->
                             <div
                                 :class="$route.name === 'down' ? 'cl' : ''"
                                 class="li"

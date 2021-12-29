@@ -377,7 +377,7 @@
                             </div>
                             <div class="anchor-content">
                                 <div class="start-anchor">
-                                    <div class="hot-anchor">热门专家</div>
+                                    <div class="hot-anchor">热门主播</div>
                                 </div>
                                 <div class="anchor-swiper-content">
                                     <div class="swiper-container anchor-swiper">
@@ -386,7 +386,7 @@
                                         >
                                             <div
                                                 class="swiper-slide anchor-swiper-slide"
-                                                v-for="item in hotExpertList"
+                                                v-for="item in hotAnchorList"
                                                 :key="item.anchorId"
                                             >
                                                 <div
@@ -673,7 +673,6 @@ export default {
             articleTopTagList: [],
             showDanmu: true,
             articleList: [],
-            hotExpertList: [],
             activeList: [],
             footerBallList: [],
             basketBallList: [],
@@ -695,7 +694,7 @@ export default {
         this.getTopArticleList();
         this.getArticleListByTagId(0);
         this.getBannerList();
-        this.getHotExpert();
+        this.getHotAnchorList();
         this.getFooterBall();
         this.getBasketBall();
     },
@@ -794,15 +793,17 @@ export default {
         toPage2(path) {
             this.$router.push(path);
         },
-        // 热门专家
-        getHotExpert() {
+        // 热门主播
+        getHotAnchorList() {
             let param = {
-                type: 1,
+                pageNum: 1,
+                pageSize: 30,
             };
-            this.$axios('post', '/hotRank/featuredExpertsList', param).then(
+            this.$axios('post', '/pcHome/getAnchorRecommend', param).then(
                 (res) => {
                     if (res.code === 200) {
-                        this.hotExpertList = res.data;
+                        this.hotAnchorList = res.data.dataList;
+                        console.log(res.data);
                         this.$nextTick(() => {
                             new Swiper('.anchor-swiper', {
                                 navigation: {
@@ -1032,10 +1033,10 @@ export default {
                 let param = {
                     id: id,
                 };
-                this.$axios('post', '/hotRank/focusExpert', param).then(
+                this.$axios('post', '/anchor/followAnchor', param).then(
                     (res) => {
                         if (res.code === 200) {
-                            this.getHotExpert();
+                            this.getHotAnchorList();
                             this.$message({
                                 type: 'success',
                                 message: '关注成功',
@@ -1058,10 +1059,10 @@ export default {
                 let param = {
                     id: id,
                 };
-                this.$axios('post', '/hotRank/cancelFocusExpert', param).then(
+                this.$axios('post', '/anchor/unFollowAnchor', param).then(
                     (res) => {
                         if (res.code === 200) {
-                            this.getHotExpert();
+                            this.getHotAnchorList();
                             this.$message({
                                 type: 'success',
                                 message: '取消关注成功',

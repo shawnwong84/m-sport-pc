@@ -82,7 +82,7 @@ export default {
 .my-center-box {
     width: 1200px;
 
-    margin: 22px auto 0;
+    margin: 22px auto;
     @include flexBetweenStart();
     .my-left {
         width: 220px;

@@ -6,18 +6,31 @@
 </template>
 
 <script>
-import regAndLogin from './components/regAndLogin'
+import regAndLogin from './components/regAndLogin';
+import { isMobile } from './utils/tools';
 export default {
     name: 'App',
     data() {
         return {};
     },
     components: {
-        regAndLogin
+        regAndLogin,
     },
     watch: {},
-    mounted() {},
-    methods: {},
+    mounted() {
+        this.toPlatform();
+    },
+    methods: {
+        toPlatform() {
+            const { NODE_ENV } = process.env;
+
+            if (NODE_ENV !== 'development') {
+                if (isMobile()) {
+                    window.location.href = '//m.mzhibo.cc/';
+                }
+            }
+        },
+    },
 };
 </script>
 
