@@ -173,7 +173,14 @@
                                     src="../assets/image/header-live-icon.png"
                                     alt=""
                                 />
-                                <span @click="toPage('myAnchor')">开播</span>
+                                <span
+                                    @click="
+                                        infoData.applying == 2
+                                            ? toPage('myAnchor')
+                                            : toPage('myApply')
+                                    "
+                                    >开播</span
+                                >
                             </div>
                             <div class="fx align-items" v-if="!token">
                                 <div class="ml-5 cursor fx align-items">
@@ -248,21 +255,30 @@
                                                 />
                                                 <span>个人中心</span>
                                             </div>
-                                            <div class="nav-item"  @click="toPage('myAttention')">
+                                            <div
+                                                class="nav-item"
+                                                @click="toPage('myAttention')"
+                                            >
                                                 <img
                                                     src="../assets/image/header/follow-icon.png"
                                                     alt=""
                                                 />
                                                 <span>我的关注</span>
                                             </div>
-                                            <div class="nav-item" @click="toPage('myMessage')">
+                                            <div
+                                                class="nav-item"
+                                                @click="toPage('myMessage')"
+                                            >
                                                 <img
                                                     src="../assets/image/header/message-icon.png"
                                                     alt=""
                                                 />
                                                 <span>我的消息</span>
                                             </div>
-                                            <div class="nav-item" @click="toPage('myAnchor')">
+                                            <div
+                                                class="nav-item"
+                                                @click="toPage('myAnchor')"
+                                            >
                                                 <img
                                                     src="../assets/image/header/video-living-icon.png"
                                                     alt=""

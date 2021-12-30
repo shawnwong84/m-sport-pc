@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
 import myHome from './myHome';
 export default {
     name: 'index',
@@ -59,7 +60,7 @@ export default {
                 },
                 {
                     id: 6,
-                    path: '/my/myAnchor',
+                    path: '/my/myApply',
                     name: '主播申请',
                 },
             ],
@@ -68,11 +69,36 @@ export default {
     components: {
         myHome,
     },
-    watch: {},
+    computed: {
+        ...mapGetters({
+            getUserInfo: 'getUserInfo',
+        }),
+    },
+    watch: {
+        getUserInfo: {
+            handler(val) {
+                if (Object.keys(val).length > 0) {
+                    this.applyAnchor(val);
+                }
+            },
+            immediate: true,
+        },
+    },
     mounted() {},
     methods: {
         toPage(path) {
             this.$router.push(path);
+        },
+        applyAnchor(val) {
+            if (val.applying === 2) {
+                this.navlist = this.navlist.map((item) => {
+                    if (item.id === 6) {
+                        item.path = '/my/myAnchor';
+                        item.name = '我的直播';
+                    }
+                    return item;
+                });
+            }
         },
     },
 };

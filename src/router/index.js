@@ -303,6 +303,16 @@ const router = new Router({
                             },
                         },
                         {
+                            path: '/my/myApply',
+                            name: 'myApply',
+                            component: () =>
+                                import('@/pages/my/myApply/index.vue'),
+                            meta: {
+                                footShow: false,
+                                requiresAuth: true,
+                            },
+                        },
+                        {
                             path: '/my/myAnchor',
                             name: 'myAnchor',
                             component: () =>
