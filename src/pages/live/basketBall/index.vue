@@ -7,7 +7,7 @@
 <template>
     <div class="basketball">
         <div class="live-title">篮球直播</div>
-        <div class="live-list">
+        <div class="live-list" v-if="ballList.length > 0">
             <liveItem
                 :item="item"
                 v-for="item in ballList"
@@ -20,12 +20,14 @@
                 :class="{ 'placeholder-exp-box': !getExpansion }"
             ></i>
         </div>
+        <noData v-else></noData>
     </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
 import liveItem from '../../../components/liveItem';
+import noData from '../../../components/noData';
 
 export default {
     name: 'basketball',
@@ -36,6 +38,7 @@ export default {
     },
     components: {
         liveItem,
+        noData,
     },
     watch: {},
     computed: {

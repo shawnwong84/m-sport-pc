@@ -7,7 +7,7 @@
 <template>
     <div class="hotball">
         <div class="live-title">热门直播</div>
-        <div class="live-list">
+        <div class="live-list" v-if="hotList.length > 0">
             <liveItem
                 :item="item"
                 v-for="item in hotList"
@@ -20,12 +20,14 @@
                 :class="{ 'placeholder-exp-box': !getExpansion }"
             ></i>
         </div>
+        <noData v-else></noData>
     </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
 import liveItem from '../../../components/liveItem';
+import noData from '../../../components/noData';
 export default {
     name: 'hotball',
     data() {
@@ -35,6 +37,7 @@ export default {
     },
     components: {
         liveItem,
+        noData,
     },
     watch: {},
     computed: {

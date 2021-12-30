@@ -14,7 +14,7 @@
                             />
                             <span>全部直播</span>
                         </div>
-                        <div class="slide-nav-item">
+                        <div class="slide-nav-item"  @click="toPage('/my/myAttention')">
                             <img
                                 src="../../assets/image/live/follow-nav-icon.png"
                                 alt=""
@@ -53,7 +53,7 @@
                             />
                             <span>下载APP</span>
                         </div>
-                        <div class="my-living">
+                        <div class="my-living" @click="toPage('/my/myAnchor')">
                             <img
                                 src="../../assets/image/live/audio-icon.png"
                                 alt=""
@@ -155,7 +155,7 @@ export default {
         toPage(path, isOpen = false) {
             if (isOpen) {
                 let routeData = this.$router.resolve({
-                    path:path,
+                    path: path,
                 });
                 window.open(routeData.href, '_blank');
             } else {
