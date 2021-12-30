@@ -9,7 +9,7 @@
         <div class="my-head">
             <div class="title">我的关注</div>
         </div>
-        <div class="attention-content">
+        <div class="attention-content" v-if="userAnchorList.length > 0">
             <div class="attention-list">
                 <div
                     class="attention-item"
@@ -35,10 +35,12 @@
                 </div>
             </div>
         </div>
+        <noData v-else></noData>
     </div>
 </template>
 
 <script>
+import noData from '../../../components/noData';
 export default {
     name: 'myAttention',
     data() {
@@ -46,7 +48,9 @@ export default {
             userAnchorList: [],
         };
     },
-    components: {},
+    components: {
+        noData,
+    },
     watch: {},
     mounted() {
         this.userGetAnchorList();

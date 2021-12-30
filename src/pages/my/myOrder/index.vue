@@ -9,7 +9,7 @@
         <div class="my-head">
             <div class="title">我的预约</div>
         </div>
-        <div class="order-content">
+        <div class="order-content" v-if="userReserveMatchList.length > 0">
             <div
                 class="order-list"
                 v-for="(item, index) in userReserveMatchList"
@@ -58,10 +58,12 @@
                 </div>
             </div>
         </div>
+        <noData v-else></noData>
     </div>
 </template>
 
 <script>
+import noData from '../../../components/noData';
 export default {
     name: 'myOrder',
     data() {
@@ -74,7 +76,9 @@ export default {
             },
         };
     },
-    components: {},
+    components: {
+        noData,
+    },
     watch: {},
     mounted() {
         this.userGetReserveMatch();

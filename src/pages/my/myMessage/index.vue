@@ -9,7 +9,7 @@
         <div class="my-head">
             <div class="title">我的消息</div>
         </div>
-        <div class="message-list">
+        <div class="message-list" v-if="messageList.length > 0">
             <div
                 class="message-list-item"
                 v-for="item in messageList"
@@ -19,10 +19,12 @@
                 <p>{{ item.msgContent }}</p>
             </div>
         </div>
+        <noData v-else></noData>
     </div>
 </template>
 
 <script>
+import noData from '../../../components/noData';
 export default {
     name: 'myMessage',
     data() {
@@ -30,7 +32,9 @@ export default {
             messageList: [],
         };
     },
-    components: {},
+    components: {
+        noData,
+    },
     watch: {},
     mounted() {
         this.getUserMsgList();
