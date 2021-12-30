@@ -168,19 +168,17 @@
                             </div>
                             <div
                                 class="fx align-items justify-center live-start"
+                                @click="
+                                    infoData.applying == 2
+                                        ? toPage('myAnchor')
+                                        : toPage('myApply')
+                                "
                             >
                                 <img
                                     src="../assets/image/header-live-icon.png"
                                     alt=""
                                 />
-                                <span
-                                    @click="
-                                        infoData.applying == 2
-                                            ? toPage('myAnchor')
-                                            : toPage('myApply')
-                                    "
-                                    >开播</span
-                                >
+                                <span>开播</span>
                             </div>
                             <div class="fx align-items" v-if="!token">
                                 <div class="ml-5 cursor fx align-items">
@@ -479,7 +477,7 @@ export default {
 
 <style scoped lang="scss">
 .index-wrapper {
-    min-height: calc(100vh - 64px);
+    min-height: calc(100vh - 192px);
     min-width: 1200px;
 }
 .header-content {

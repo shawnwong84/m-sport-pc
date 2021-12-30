@@ -444,7 +444,7 @@
                         </div>
                         <div class="hot-anchor-right">
                             <el-tabs v-model="activeName">
-                                <el-tab-pane label="咨询" name="1">
+                                <el-tab-pane label="资讯" name="1">
                                     <div class="information-box">
                                         <div
                                             class="information-ad"
@@ -483,12 +483,26 @@
                                     </div>
                                 </el-tab-pane>
 
-                                <el-tab-pane label="活动" name="2"
+                                <!-- <el-tab-pane label="活动" name="2"
                                     >活动</el-tab-pane
-                                >
-                                <el-tab-pane label="公告" name="3"
-                                    >公告</el-tab-pane
-                                >
+                                > -->
+                                <el-tab-pane label="公告" name="3">
+                                    <div class="announcement-list">
+                                        <div
+                                            class="announcement-item"
+                                            v-for="item in messageLsit"
+                                            :key="item.id"
+                                            @click="toPage2('/criterion/notice')"
+                                        >
+                                            <div class="tab-left-title">
+                                                公告
+                                            </div>
+                                            <span class="des">{{
+                                                item.title
+                                            }}</span>
+                                        </div>
+                                    </div>
+                                </el-tab-pane>
                                 <el-tab-pane label="规范" name="4"
                                     >规范</el-tab-pane
                                 >
@@ -636,8 +650,6 @@
                 </div>
             </div>
         </div>
-
-       
     </div>
 </template>
 
@@ -680,10 +692,11 @@ export default {
             sportsType: 0,
             player: null,
             advertisement: '',
-            activeName: '1', //选项卡
+            activeName: '1', //选项卡,
+            messageLsit: [],
         };
     },
- 
+
     mounted() {
         this.getLiveStreamingToPc();
         this.getBannerList1();
@@ -696,6 +709,7 @@ export default {
         this.getHotAnchorList();
         this.getFooterBall();
         this.getBasketBall();
+        this.getMessageList();
     },
     methods: {
         ...mapMutations({
@@ -790,8 +804,12 @@ export default {
             window.open(routeData.href, '_blank');
         },
         toPage2(path) {
-            this.$router.push(path);
+            let routeData = this.$router.resolve({
+                path: path,
+            });
+            window.open(routeData.href, '_blank');
         },
+
         // 热门主播
         getHotAnchorList() {
             let param = {
@@ -1075,6 +1093,19 @@ export default {
                     },
                 );
             }
+        },
+
+        //获取公告列表
+        getMessageList() {
+            let param = {
+                pageNum: 1,
+                pageSize: 6,
+            };
+            this.$axios('post', '/common/getMessageList', param).then((res) => {
+                if (res.code === 200) {
+                    this.messageLsit = res.data.dataList;
+                }
+            });
         },
     },
 };
@@ -1398,6 +1429,16 @@ export default {
             background: #ffffff;
             border-radius: 8px;
             padding: 6px 16px;
+            .tab-left-title {
+                font-size: 12px;
+                font-weight: 400;
+                color: #605656;
+                line-height: 16px;
+                padding: 2px 8px;
+                border-radius: 2px;
+                border: 1px solid #e6e9f5;
+                margin-right: 5px;
+            }
             .information-box {
                 width: 100%;
 
@@ -1426,12 +1467,10 @@ export default {
 
                         margin-top: 26px;
                         cursor: pointer;
-
                         .icon {
                             width: 38px;
                             height: 21px;
                         }
-
                         .text-dsc {
                             flex: 1;
                             margin-left: 13px;
@@ -1442,6 +1481,22 @@ export default {
                             white-space: nowrap;
                             text-overflow: ellipsis;
                         }
+                    }
+                }
+            }
+
+            .announcement-list {
+                width: 100%;
+                .announcement-item {
+                    width: 100%;
+                    @include flexStartCenter();
+                    cursor: pointer;
+                    .des {
+                        width: 280px;
+                        display: block;
+                        @include textEllipsis();
+                        font-size: 14px;
+                        color: #333;
                     }
                 }
             }

@@ -328,6 +328,46 @@ const router = new Router({
                         requiresAuth: true,
                     },
                 },
+                {
+                    path: '/criterion',
+                    name: 'criterion',
+                    redirect:'/criterion/notice',
+                    component: () => import('@/pages/criterion/index.vue'),
+                    meta: {
+                        footShow: true,
+                        requiresAuth: false,
+                    },
+                    children:[
+                        {
+                            path: '/criterion/notice',
+                            name: 'notice',
+                            component: () => import('@/pages/criterion/notice/index.vue'),
+                            meta: {
+                                footShow: true,
+                                requiresAuth: false,
+                            },
+                        },
+                        {
+                            path: '/criterion/norm',
+                            name: 'norm',
+                            component: () => import('@/pages/criterion/norm/index.vue'),
+                            meta: {
+                                footShow: true,
+                                requiresAuth: false,
+                            },
+                        },
+                        {
+                            path: '/criterion/help',
+                            name: 'help',
+                            component: () => import('@/pages/criterion/help/index.vue'),
+                            meta: {
+                                footShow: true,
+                                requiresAuth: false,
+                            },
+                        }
+                    ]
+                }
+
             ],
         },
     ],

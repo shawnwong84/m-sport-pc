@@ -134,7 +134,7 @@
                             type="text"
                             v-model="smsCode"
                             placeholder="请输入验证码"
-                            maxlength="8"
+                            maxlength="6"
                         />
                     </div>
                     <div class="btn-verify">
@@ -343,11 +343,11 @@ export default {
                 });
                 return false;
             } else if (
-                !(this.password.length > 6 && this.password.length < 16)
+                (this.password.length < 6 && this.password.length > 18)
             ) {
                 this.$message({
                     type: 'warning',
-                    message: '请输入6-16位密码',
+                    message: '请输入6-18位密码',
                 });
                 return false;
             } else {
