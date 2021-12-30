@@ -130,7 +130,7 @@
                                 <el-popover placement="bottom" trigger="hover">
                                     <div class="header-down-qr-box">
                                         <vue-qr
-                                            text="dl.mzhibo.cc"
+                                            text="http://m.mzhibo.cc/#/down"
                                             :size="68"
                                             :margin="0"
                                             class="qr-img"
@@ -301,7 +301,7 @@
                     <el-popover placement="right" trigger="hover">
                         <div class="down-qr-box">
                             <vue-qr
-                                text="dl.mzhibo.cc"
+                                text="http://m.mzhibo.cc/#/down"
                                 :size="168"
                                 :margin="0"
                                 class="qr-img"
@@ -317,7 +317,7 @@
                     <div class="nav-icon"></div>
                     <span>开播</span>
                 </div>
-                <div class="nav-item share">
+                <div class="nav-item share" @click="shareApp">
                     <div class="nav-icon"></div>
                     <span>分享</span>
                 </div>
@@ -341,6 +341,7 @@ import { Cookie } from '../api/cookie.js';
 import VueQr from 'vue-qr';
 import { mapGetters, mapMutations, mapActions } from 'vuex';
 import mfooter from '../components/footer';
+import copy from 'copy-to-clipboard';
 export default {
     name: 'index',
     provide() {
@@ -386,13 +387,17 @@ export default {
             setPermissionModal: 'setPermissionModal',
         }),
 
-        down() {
-            window.open('http://dl.hszhibo.live');
-        },
         goTop() {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth',
+            });
+        },
+        shareApp() {
+            copy(window.location.href);
+            this.$message({
+                type: 'success',
+                message: '复制成功，快去分享给好友吧',
             });
         },
         // 生成deviceId
@@ -444,7 +449,7 @@ export default {
         toSearch() {
             // console.log(this.searchContent)
             let routeData = this.$router.resolve({
-                path: 'search',
+                path: '/search',
                 query: {
                     name: this.searchContent,
                 },

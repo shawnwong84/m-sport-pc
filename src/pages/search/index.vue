@@ -152,7 +152,7 @@ export default {
     right: 0;
     border-top-right-radius: 17px;
     border-bottom-right-radius: 17px;
-    background: linear-gradient(132deg, #fbcfa1 0%, #ce9e6c 100%);
+    background: linear-gradient(180deg, #ff8d86 0%, #f8413d 100%);
     outline: none;
     cursor: pointer;
 }

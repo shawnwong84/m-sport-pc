@@ -26,7 +26,7 @@
 
             <h3 class="down-des">体育直播移动下载 - 畅想高清比赛</h3>
             <div class="down-qr">
-                <vue-qr text="dl.mzhibo.cc" :size="190" :margin="24" />
+                <vue-qr text="http://m.mzhibo.cc/#/down" :size="190" :margin="24" />
                 <div class="sao-qr">扫一扫下载直播体育APP</div>
             </div>
             <div class="down-btn">

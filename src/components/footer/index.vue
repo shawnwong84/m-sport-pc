@@ -3,9 +3,21 @@
         <div class="footer-box">
             <div class="footer-left">
                 <div class="living-tools">
-                    <el-button size="small">我要开播</el-button>
-                    <el-button size="small">平台规范</el-button>
-                    <el-button size="small">主播工具</el-button>
+                    <el-button size="small" @click="toPage('/my/myAnchor')"
+                        >我要开播</el-button
+                    >
+                    <el-button
+                        size="small"
+                        @click="toPage('/commonProblem?id=2')"
+                        >平台规范</el-button
+                    >
+                    <el-button size="small"
+                        ><a
+                            href="https://obsproject.com/zh-cn/download"
+                            target="_blank"
+                            >主播工具</a
+                        ></el-button
+                    >
                 </div>
                 <div class="help-link">
                     <router-link to="/" target="_blank">
@@ -29,17 +41,17 @@
                 </div>
                 <div class="copyright-information">
                     2020明升网络科技有限公司｜渝ICP备19013564号-4
-                    ｜违法不良举报QQ：3333333338｜客服电话：010-52333333
+                    ｜违法不良举报QQ：3322129855
                 </div>
             </div>
 
             <div class="footer-right">
                 <div class="footer-qr-app qr">
-                    <vue-qr text="dl.mzhibo.cc" :size="68" :margin="0" />
+                    <vue-qr text="http://m.mzhibo.cc/#/down" :size="68" :margin="0" />
                     <p>足球APP</p>
                 </div>
                 <div class="footer-qr-focus qr">
-                    <vue-qr text="dl.mzhibo.cc" :size="68" :margin="0" />
+                    <vue-qr text="http://m.mzhibo.cc/#/down" :size="68" :margin="0" />
                     <p>关注我们</p>
                 </div>
             </div>
@@ -55,6 +67,14 @@ export default {
         return {};
     },
     components: { VueQr },
+    methods: {
+        toPage(path) {
+            let routeData = this.$router.resolve({
+                path: path,
+            });
+            window.open(routeData.href, '_blank');
+        },
+    },
 };
 </script>
 
@@ -133,6 +153,17 @@ export default {
 
             .footer-qr-focus {
                 margin-left: 40px;
+            }
+        }
+    }
+    ::v-deep .el-button {
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+        &:hover {
+            a {
+                color: $primary-color;
             }
         }
     }
