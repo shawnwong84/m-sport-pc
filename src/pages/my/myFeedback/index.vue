@@ -29,7 +29,9 @@
             </div>
         </template>
 
-        <noData v-else-if="userFeedbackList.length == 0 && !isFeedback"></noData>
+        <noData
+            v-else-if="userFeedbackList.length == 0 && !isFeedback"
+        ></noData>
         <div class="feedback-form" v-if="isFeedback">
             <el-form
                 :model="feedbackParams"
@@ -249,9 +251,25 @@ export default {
     .feedback-list {
         width: 100%;
         margin-top: 20px;
+        padding: 0 30px;
         &-item {
             @include flexStartCenter();
-            margin-bottom: 15px;
+            padding: 10px 0;
+            &:not(:last-child) {
+                border-bottom: 1px solid #f1f1f1;
+            }
+            img {
+                width: 34px;
+                height: 34px;
+                margin-right: 5px;
+            }
+            p {
+                flex: 1;
+                font-size: 14px;
+                color: #282828;
+                word-wrap: break-word;
+                word-break: break-all;
+            }
         }
     }
     .feedback-form {

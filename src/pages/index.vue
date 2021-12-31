@@ -306,8 +306,10 @@
                             />
                         </div>
                         <div slot="reference">
-                            <div class="nav-icon"></div>
-                            <span>下载</span>
+                            <div class="nav-popover-li">
+                                <div class="nav-icon"></div>
+                                <span>下载</span>
+                            </div>
                         </div>
                     </el-popover>
                 </div>
@@ -320,8 +322,15 @@
                     <span>分享</span>
                 </div>
                 <div class="nav-item customer">
-                    <div class="nav-icon"></div>
-                    <span>客服</span>
+                    <el-popover placement="right" trigger="hover">
+                        <div>QQ:3322129855</div>
+                        <div slot="reference">
+                            <div class="nav-popover-li">
+                                <div class="nav-icon"></div>
+                                <span>客服</span>
+                            </div>
+                        </div>
+                    </el-popover>
                 </div>
                 <div class="nav-item top" @click="goTop">
                     <div class="nav-icon"></div>
@@ -715,6 +724,9 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    .nav-popover-li {
+        @include flexColumnCenter();
+    }
     .nav-item {
         margin: 10px 0;
         cursor: pointer;

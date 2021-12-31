@@ -487,28 +487,74 @@
                                     >活动</el-tab-pane
                                 > -->
                                 <el-tab-pane label="公告" name="3">
-                                    <div class="announcement-list">
+                                    <div
+                                        class="announcement-list"
+                                        v-for="item in getNoticeList"
+                                        :key="item.id"
+                                    >
                                         <div
                                             class="announcement-item"
-                                            v-for="item in messageLsit"
-                                            :key="item.id"
-                                            @click="toPage2('/criterion/notice')"
+                                            @click="
+                                                toPage2(
+                                                    `/criterion/detail/${item.id}`,
+                                                )
+                                            "
                                         >
                                             <div class="tab-left-title">
                                                 公告
                                             </div>
                                             <span class="des">{{
-                                                item.title
+                                                item.content
                                             }}</span>
                                         </div>
                                     </div>
                                 </el-tab-pane>
-                                <el-tab-pane label="规范" name="4"
-                                    >规范</el-tab-pane
-                                >
-                                <el-tab-pane label="帮助" name="5"
-                                    >帮助</el-tab-pane
-                                >
+                                <el-tab-pane label="规范" name="4">
+                                    <div
+                                        class="announcement-list"
+                                        v-for="item in getNormList"
+                                        :key="item.id"
+                                    >
+                                        <div
+                                            class="announcement-item"
+                                            @click="
+                                                toPage2(
+                                                    `/criterion/detail/${item.id}`,
+                                                )
+                                            "
+                                        >
+                                            <div class="tab-left-title">
+                                                规范
+                                            </div>
+                                            <span class="des">{{
+                                                item.content
+                                            }}</span>
+                                        </div>
+                                    </div>
+                                </el-tab-pane>
+                                <el-tab-pane label="帮助" name="5">
+                                    <div
+                                        class="announcement-list"
+                                        v-for="item in getHelpList"
+                                        :key="item.id"
+                                    >
+                                        <div
+                                            class="announcement-item"
+                                            @click="
+                                                toPage2(
+                                                    `/criterion/detail/${item.id}`,
+                                                )
+                                            "
+                                        >
+                                            <div class="tab-left-title">
+                                                帮助
+                                            </div>
+                                            <span class="des">{{
+                                                item.content
+                                            }}</span>
+                                        </div>
+                                    </div>
+                                </el-tab-pane>
                             </el-tabs>
                         </div>
                     </div>
@@ -654,7 +700,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
+import { mapMutations, mapGetters } from 'vuex';
 import { Cookie } from '../../api/cookie.js';
 
 import Swiper from 'swiper';
@@ -695,6 +741,13 @@ export default {
             activeName: '1', //选项卡,
             messageLsit: [],
         };
+    },
+    computed: {
+        ...mapGetters({
+            getNoticeList: 'getNoticeList',
+            getNormList: 'getNormList',
+            getHelpList: 'getHelpList',
+        }),
     },
 
     mounted() {
@@ -909,13 +962,15 @@ export default {
             this.$axios('post', '/live/getLiveStreamingToPc').then((res) => {
                 if (res.code === 200) {
                     this.liveStreamingToPc = res.data;
-                    this.roomId = this.liveStreamingToPc[0].roomId;
-                    this.playerVideo(
-                        this.roomId,
-                        this.liveStreamingToPc[0].liveUrl,
-                        'https://1-1305184012.cos.ap-nanjing.myqcloud.com/live/11163174726023.jpg',
-                        1,
-                    );
+                    if (this.liveStreamingToPc.length > 0) {
+                        this.roomId = this.liveStreamingToPc[0].roomId;
+                        this.playerVideo(
+                            this.roomId,
+                            this.liveStreamingToPc[0].liveUrl,
+                            'https://1-1305184012.cos.ap-nanjing.myqcloud.com/live/11163174726023.jpg',
+                            1,
+                        );
+                    }
                 }
             });
         },
@@ -1491,6 +1546,7 @@ export default {
                     width: 100%;
                     @include flexStartCenter();
                     cursor: pointer;
+                    margin-bottom: 14px;
                     .des {
                         width: 280px;
                         display: block;

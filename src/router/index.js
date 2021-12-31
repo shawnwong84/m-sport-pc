@@ -364,6 +364,15 @@ const router = new Router({
                                 footShow: true,
                                 requiresAuth: false,
                             },
+                        },
+                        {
+                            path: '/criterion/detail/:id',
+                            name: 'criterionDetail',
+                            component: () => import('@/pages/criterion/detail/index.vue'),
+                            meta: {
+                                footShow: true,
+                                requiresAuth: false,
+                            },
                         }
                     ]
                 }

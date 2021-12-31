@@ -70,11 +70,13 @@ export default {
 <style scoped lang="scss">
 .criterion-box {
     width: 1200px;
-    margin: 22px auto;
+    margin: 0px auto;
+    @include flexBetweenCenter();
 
     .criterion-left {
         width: 220px;
-        height: 678px;
+        min-height: 678px;
+        height: calc(100vh - 220px);
         background-color: #fff;
         border-radius: 8px;
         .nav-list {
@@ -117,6 +119,14 @@ export default {
                 }
             }
         }
+    }
+    .criterion-right {
+        width: 964px;
+        min-height: 678px;
+        height: calc(100vh - 220px);
+        background-color: #fff;
+        border-radius: 8px;
+        overflow-y: auto;
     }
 }
 </style>
