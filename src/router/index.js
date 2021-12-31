@@ -89,6 +89,16 @@ const router = new Router({
                             },
                         },
                         {
+                            path: '/live/otherball',
+                            name: 'otherball',
+                            component: () =>
+                                import('@/pages/live/otherBall/index.vue'),
+                            meta: {
+                                footShow: true,
+                                requiresAuth: false,
+                            },
+                        },
+                        {
                             path: '/live/room',
                             name: 'room',
                             component: () =>

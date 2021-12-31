@@ -142,6 +142,11 @@ export default {
                     name: '篮球',
                     path: '/live/basketball',
                 },
+                 {
+                    id: 5,
+                    name: '其他',
+                    path: '/live/otherball',
+                },
             ],
         };
     },
