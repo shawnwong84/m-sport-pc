@@ -331,17 +331,18 @@ const router = new Router({
                 {
                     path: '/criterion',
                     name: 'criterion',
-                    redirect:'/criterion/notice',
+                    redirect: '/criterion/notice',
                     component: () => import('@/pages/criterion/index.vue'),
                     meta: {
                         footShow: true,
                         requiresAuth: false,
                     },
-                    children:[
+                    children: [
                         {
                             path: '/criterion/notice',
                             name: 'notice',
-                            component: () => import('@/pages/criterion/notice/index.vue'),
+                            component: () =>
+                                import('@/pages/criterion/notice/index.vue'),
                             meta: {
                                 footShow: true,
                                 requiresAuth: false,
@@ -350,7 +351,8 @@ const router = new Router({
                         {
                             path: '/criterion/norm',
                             name: 'norm',
-                            component: () => import('@/pages/criterion/norm/index.vue'),
+                            component: () =>
+                                import('@/pages/criterion/norm/index.vue'),
                             meta: {
                                 footShow: true,
                                 requiresAuth: false,
@@ -359,7 +361,8 @@ const router = new Router({
                         {
                             path: '/criterion/help',
                             name: 'help',
-                            component: () => import('@/pages/criterion/help/index.vue'),
+                            component: () =>
+                                import('@/pages/criterion/help/index.vue'),
                             meta: {
                                 footShow: true,
                                 requiresAuth: false,
@@ -368,15 +371,78 @@ const router = new Router({
                         {
                             path: '/criterion/detail/:id',
                             name: 'criterionDetail',
-                            component: () => import('@/pages/criterion/detail/index.vue'),
+                            component: () =>
+                                import('@/pages/criterion/detail/index.vue'),
                             meta: {
                                 footShow: true,
                                 requiresAuth: false,
                             },
-                        }
-                    ]
-                }
+                        },
+                    ],
+                },
+                {
+                    path: '/about',
+                    name: 'about',
+                    component: () => import('@/pages/about/index.vue'),
+                    redirect: '/about/business',
+                    meta: {
+                        footShow: true,
+                        requiresAuth: false,
+                    },
+                    children: [
+                        {
+                            path: '/about/business',
+                            name: 'aboutBusiness',
+                            component: () =>
+                                import('@/pages/about/business/index.vue'),
+                            meta: {
+                                footShow: true,
+                                requiresAuth: false,
+                            },
+                        },
 
+                        {
+                            path: '/about/copyright',
+                            name: 'aboutCopyright',
+                            component: () =>
+                                import('@/pages/about/copyright/index.vue'),
+                            meta: {
+                                footShow: true,
+                                requiresAuth: false,
+                            },
+                        },
+                        {
+                            path: '/about/connect',
+                            name: 'aboutConnect',
+                            component: () =>
+                                import('@/pages/about/connect/index.vue'),
+                            meta: {
+                                footShow: true,
+                                requiresAuth: false,
+                            },
+                        },
+                        {
+                            path: '/about/regard',
+                            name: 'aboutRegard',
+                            component: () =>
+                                import('@/pages/about/regard/index.vue'),
+                            meta: {
+                                footShow: true,
+                                requiresAuth: false,
+                            },
+                        },
+                        {
+                            path: '/about/service',
+                            name: 'aboutService',
+                            component: () =>
+                                import('@/pages/about/service/index.vue'),
+                            meta: {
+                                footShow: true,
+                                requiresAuth: false,
+                            },
+                        },
+                    ],
+                },
             ],
         },
     ],

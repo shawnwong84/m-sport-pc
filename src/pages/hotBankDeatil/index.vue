@@ -143,12 +143,10 @@
                 </div>
             </div>
         </div>
-       
     </div>
 </template>
 
 <script>
-
 export default {
     name: 'index',
     data() {
@@ -158,7 +156,7 @@ export default {
             pageNum: 1,
         };
     },
-   
+
     mounted() {
         this.getMatch();
         this.getHotRankList();

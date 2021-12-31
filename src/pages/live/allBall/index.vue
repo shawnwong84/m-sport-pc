@@ -7,7 +7,7 @@
 <template>
     <div class="allball">
         <div class="live-title">全部直播</div>
-        <div class="live-list" v-if="ballList.length>0">
+        <div class="live-list" v-if="ballList.length > 0">
             <liveItem
                 :item="item"
                 v-for="item in ballList"
@@ -27,7 +27,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import liveItem from '../../../components/liveItem';
-import noData from '../../../components/noData'
+import noData from '../../../components/noData';
 
 export default {
     name: 'allball',
@@ -38,7 +38,7 @@ export default {
     },
     components: {
         liveItem,
-        noData
+        noData,
     },
     watch: {},
     mounted() {

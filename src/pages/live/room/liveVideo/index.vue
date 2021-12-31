@@ -130,7 +130,6 @@ export default {
         max-height: none;
         width: 100px;
         left: calc(100% - 120px);
-        
     }
 }
 </style>

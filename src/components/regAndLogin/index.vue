@@ -342,9 +342,7 @@ export default {
                     message: '密码不可为空',
                 });
                 return false;
-            } else if (
-                (this.password.length < 6 && this.password.length > 18)
-            ) {
+            } else if (this.password.length < 6 && this.password.length > 18) {
                 this.$message({
                     type: 'warning',
                     message: '请输入6-18位密码',

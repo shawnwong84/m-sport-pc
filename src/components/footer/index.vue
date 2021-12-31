@@ -20,22 +20,22 @@
                     >
                 </div>
                 <div class="help-link">
-                    <router-link to="/" target="_blank">
+                    <router-link to="/about/business" target="_blank">
                         商务合作&nbsp;/
                     </router-link>
-                    <router-link to="/" target="_blank">
+                    <router-link to="/about/opinion" target="_blank">
                         意见反馈&nbsp;/
                     </router-link>
-                    <router-link to="/" target="_blank">
+                    <router-link to="/about/copyright" target="_blank">
                         版权投诉&nbsp;/
                     </router-link>
-                    <router-link to="/" target="_blank">
+                    <router-link to="/about/connect" target="_blank">
                         联系我们&nbsp;/
                     </router-link>
-                    <router-link to="/" target="_blank">
+                    <router-link to="/about/regard" target="_blank">
                         关于我们&nbsp;/
                     </router-link>
-                    <router-link to="/" target="_blank">
+                    <router-link to="/about/service" target="_blank">
                         联系客服&nbsp;/
                     </router-link>
                 </div>
@@ -47,11 +47,19 @@
 
             <div class="footer-right">
                 <div class="footer-qr-app qr">
-                    <vue-qr text="http://m.mzhibo.cc/#/down" :size="68" :margin="0" />
+                    <vue-qr
+                        text="http://m.mzhibo.cc/#/down"
+                        :size="68"
+                        :margin="0"
+                    />
                     <p>足球APP</p>
                 </div>
                 <div class="footer-qr-focus qr">
-                    <vue-qr text="http://m.mzhibo.cc/#/down" :size="68" :margin="0" />
+                    <vue-qr
+                        text="http://m.mzhibo.cc/#/down"
+                        :size="68"
+                        :margin="0"
+                    />
                     <p>关注我们</p>
                 </div>
             </div>

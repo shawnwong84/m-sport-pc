@@ -622,7 +622,7 @@ export const navData = {
         getExpansion: (state) => state.expansion,
         getNoticeList: (state) => state.noticeList,
         getNormList: (state) => state.normList,
-        getHelpList:(state) => state.helpList,
+        getHelpList: (state) => state.helpList,
         getCriterionDetailList: (state) => state.criterionDetailList,
     },
 };

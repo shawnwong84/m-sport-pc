@@ -235,7 +235,6 @@
                                             @click="getAppoinment(item2.id)"
                                         >
                                             <div class="fx">
-                                                
                                                 <div style="padding-top: 2px">
                                                     预定
                                                 </div>
@@ -279,7 +278,6 @@
                 </div>
             </div>
         </div>
-      
     </div>
 </template>
 
@@ -292,7 +290,7 @@ export default {
     data() {
         return {
             isNum: 1,
-           
+
             matchList: [],
             allNum: 0,
             sportId: '',
@@ -309,7 +307,7 @@ export default {
         this.getMatchSportsType();
     },
     methods: {
-         ...mapMutations({
+        ...mapMutations({
             setPermissionModal: 'setPermissionModal',
         }),
 
@@ -333,11 +331,9 @@ export default {
             }
             this.matchDateList.push(arr);
         },
-       
+
         toPage(name, id) {
-           
             this.$router.replace({ name: name, query: { id: id } });
-            
         },
         toPage1(id, type) {
             if (type === 0) {

@@ -1,6 +1,5 @@
 <template>
     <div>
-       
         <div class="fx justify-center">
             <div class="new">
                 <div class="new-tab">
@@ -449,14 +448,12 @@
                 </div>
             </div>
         </div>
-        
     </div>
 </template>
 
 <script>
 import Swiper from 'swiper';
 import { mapMutations } from 'vuex';
-
 
 import { Cookie } from '../../api/cookie';
 export default {
@@ -469,14 +466,14 @@ export default {
             expertsList: [],
             hotMatchList: [],
             pageNum: 1,
-          
+
             pageNum1: 1,
             ball: 0,
             tagNum: 1,
             matchHotRankList: [],
         };
     },
-  
+
     mounted() {
         this.getMatch();
         this.getHotRankListByBall();
@@ -485,7 +482,7 @@ export default {
         this.getArticleListByTagId(0);
     },
     methods: {
-          ...mapMutations({
+        ...mapMutations({
             setPermissionModal: 'setPermissionModal',
         }),
         checkTagNum(num) {
@@ -619,7 +616,7 @@ export default {
         // 取消关注
         cancelFocusExpert(id) {
             if (!Cookie.get('token')) {
-                 this.setPermissionModal(1);
+                this.setPermissionModal(1);
             } else {
                 let param = {
                     id: id,

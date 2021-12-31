@@ -14,7 +14,10 @@
                             />
                             <span>全部直播</span>
                         </div>
-                        <div class="slide-nav-item"  @click="toPage('/my/myAttention')">
+                        <div
+                            class="slide-nav-item"
+                            @click="toPage('/my/myAttention')"
+                        >
                             <img
                                 src="../../assets/image/live/follow-nav-icon.png"
                                 alt=""

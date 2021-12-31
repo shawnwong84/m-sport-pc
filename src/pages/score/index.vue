@@ -528,8 +528,6 @@
                 </div>
             </div>
         </div>
-
-     
     </div>
 </template>
 
@@ -547,7 +545,7 @@ export default {
             matchTime: '',
         };
     },
-    components: {  'v-reg-login': RegandLogin },
+    components: { 'v-reg-login': RegandLogin },
     mounted() {
         this.getToday();
         this.getMatchLiveScore();

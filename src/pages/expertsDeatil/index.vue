@@ -451,12 +451,10 @@
                 </div>
             </div>
         </div>
-       
     </div>
 </template>
 
 <script>
-
 import { mapMutations } from 'vuex';
 import { Cookie } from '../../api/cookie';
 export default {
@@ -470,7 +468,7 @@ export default {
             type: parseInt(this.$route.query.type),
         };
     },
-  
+
     mounted() {
         console.log(this.type);
         if (this.type === 2) {

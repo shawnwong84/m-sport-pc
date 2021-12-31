@@ -1,7 +1,7 @@
 <template>
     <div
         class="fx justify-center"
-        style="background: #f9fbff; padding-bottom: 90px;"
+        style="background: #f9fbff; padding-bottom: 90px"
     >
         <div class="w-1200">
             <div class="match-top">

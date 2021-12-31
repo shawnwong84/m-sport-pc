@@ -1,7 +1,7 @@
 const config = {
-    socketServer: 'im-api-v2.easemob.com',    // socket Server地址
+    socketServer: 'im-api-v2.easemob.com', // socket Server地址
 
-    restServer: 'a1.easemob.com',               // rest Server地址
+    restServer: 'a1.easemob.com', // rest Server地址
 
     appkey: '1102211214116810#room', // App key
 

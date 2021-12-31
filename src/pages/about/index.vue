@@ -5,8 +5,8 @@
  * @date: Do not edit
 -->
 <template>
-    <div class="criterion-box">
-        <div class="criterion-left">
+    <div class="about-box">
+        <div class="about-left">
             <div class="nav-list">
                 <div
                     class="nav-item"
@@ -23,7 +23,7 @@
                 </div>
             </div>
         </div>
-        <div class="criterion-right">
+        <div class="about-right">
             <router-view></router-view>
         </div>
     </div>
@@ -31,26 +31,38 @@
 
 <script>
 export default {
-    name: 'criterion',
+    name: 'about',
     data() {
         return {
             navList: [
                 {
                     id: 0,
-                    path: '/criterion/notice',
-                    name: '公告',
-                    icon: 'el-icon-tickets',
+                    path: '/about/business',
+                    name: '商务合作',
+                    icon: 'el-icon-user',
                 },
                 {
                     id: 1,
-                    path: '/criterion/norm',
-                    name: '规范',
-                    icon: 'el-icon-notebook-2',
+                    path: '/about/copyright',
+                    name: '版权投诉',
+                    icon: 'el-icon-thumb',
                 },
                 {
                     id: 2,
-                    path: '/criterion/help',
-                    name: '帮助',
+                    path: '/about/connect',
+                    name: '联系我们',
+                    icon: 'el-icon-chat-dot-round',
+                },
+                {
+                    id: 3,
+                    path: '/about/regard',
+                    name: '关于我们',
+                    icon: 'el-icon-price-tag',
+                },
+                {
+                    id: 4,
+                    path: '/about/service',
+                    name: '联系客服',
                     icon: 'el-icon-help',
                 },
             ],
@@ -68,12 +80,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.criterion-box {
+.about-box {
     width: 1200px;
     margin: 20px auto;
     @include flexBetweenCenter();
 
-    .criterion-left {
+    .about-left {
         width: 220px;
         min-height: 678px;
         height: calc(100vh - 220px);
@@ -120,7 +132,7 @@ export default {
             }
         }
     }
-    .criterion-right {
+    .about-right {
         width: 964px;
         min-height: 678px;
         height: calc(100vh - 220px);
