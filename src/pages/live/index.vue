@@ -178,6 +178,9 @@ export default {
             }
         },
     },
+    destroyed() {
+        this.setExpansion(true);
+    },
 };
 </script>
 

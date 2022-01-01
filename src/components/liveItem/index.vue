@@ -5,32 +5,33 @@
  * @date: Do not edit
 -->
 <template>
-    <div
-        class="live-item"
-        :class="{ 'live-exp-item': !getExpansion }"
-        @click="toPage('/live/room', item.roomId)"
-    >
-        <div
-            class="match-cover matchCutImg"
-            v-lazy:background-image="item.matchCutImg"
-        >
-            <img src="../../assets/image/icon-open@2x.png" class="imgvideo" />
-        </div>
-        <div class="match-info">
-            <div class="match-title">
-                {{ item.roomName }}
+    <div class="live-item" @click="toPage('/live/room', item.roomId)">
+        <div class="live-cover">
+            <div
+                class="match-cover matchCutImg"
+                v-lazy:background-image="item.matchCutImg"
+            >
+                <img
+                    src="../../assets/image/icon-open@2x.png"
+                    class="imgvideo"
+                />
             </div>
-            <div class="match-hot">
-                <div class="match-hot-left">
-                    <img :src="item.anchorAvatar" alt="" />
-                    <span>{{ item.anchorName }}</span>
+            <div class="match-info">
+                <div class="match-title">
+                    {{ item.roomName }}
                 </div>
-                <div class="match-hot-right">
-                    <img
-                        src="../../assets/image/live/hot-red-icon.png"
-                        width="12px"
-                    />
-                    <span>{{ item.hotNum }}</span>
+                <div class="match-hot">
+                    <div class="match-hot-left">
+                        <img :src="item.anchorAvatar" alt="" />
+                        <span>{{ item.anchorName }}</span>
+                    </div>
+                    <div class="match-hot-right">
+                        <img
+                            src="../../assets/image/live/hot-red-icon.png"
+                            width="12px"
+                        />
+                        <span>{{ item.hotNum }}</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -51,9 +52,6 @@ export default {
     },
     components: {},
     watch: {},
-    computed: {
-        ...mapGetters(['getExpansion']),
-    },
     mounted() {},
     methods: {
         toPage(path, id) {
@@ -71,20 +69,19 @@ export default {
 
 <style scoped lang="scss">
 .live-item {
-    width: 262px;
-    height: 220px;
-    background: #ffffff;
+    width: 20%;
+
     border-radius: 8px;
-    margin-right: 32px;
     margin-bottom: 32px;
+    @include flexCenter();
+    .live-cover {
+        width: 90%;
+        background: #ffffff;
+    }
 
     &:hover {
         transform: translateY(-5px);
         transition: all 0.3s;
-    }
-    &.live-exp-item {
-        width: 291px;
-        height: 237px;
     }
 
     .match-cover {
@@ -167,6 +164,46 @@ export default {
                     font-size: 12px;
                 }
             }
+        }
+    }
+}
+@media screen and (min-width: 1400px) and (max-width: 1800px) {
+    .live-item {
+        .match-cover {
+            height: 130px;
+        }
+    }
+}
+@media screen and (max-width: 1400px) {
+    .live-item {
+        .match-cover {
+            height: 110px;
+        }
+    }
+}
+@media only screen and (min-width: 2160px) {
+    .live-item {
+        width: 16.66667%;
+        .match-cover {
+            height: 150px;
+        }
+    }
+}
+
+@media only screen and (min-width: 2508px) {
+    .live-item {
+        width: 14.28571%;
+        .match-cover {
+            height: 165px;
+        }
+    }
+}
+
+@media only screen and (min-width: 2856px) {
+    .live-item {
+        width: 12.5%;
+        .match-cover {
+            height: 180px;
         }
     }
 }

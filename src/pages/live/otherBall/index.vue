@@ -17,7 +17,6 @@
                 v-for="item in Array.from(Array(getFlexNum(getExpansion)))"
                 :key="item"
                 class="placeholder-box"
-                :class="{ 'placeholder-exp-box': !getExpansion }"
             ></i>
         </div>
         <noData v-else></noData>
@@ -90,12 +89,30 @@ export default {
         width: 100%;
         @include flexBetweenCenterWrap();
         .placeholder-box {
-            margin-right: 22px;
-            width: 262px;
-            &.placeholder-exp-box {
-                margin-right: 22px;
-                width: 291px;
-            }
+            width: 20%;
+        }
+    }
+}
+@media only screen and (min-width: 2160px) {
+    .otherball {
+        .placeholder-box {
+            width: 16.66667%;
+        }
+    }
+}
+
+@media only screen and (min-width: 2508px) {
+    .otherball {
+        .placeholder-box {
+            width: 14.28571%;
+        }
+    }
+}
+
+@media only screen and (min-width: 2856px) {
+    .otherball {
+        .placeholder-box {
+            width: 12.5%;
         }
     }
 }
