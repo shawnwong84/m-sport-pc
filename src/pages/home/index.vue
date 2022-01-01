@@ -360,6 +360,7 @@
                                             class="swiper-slide banner-swiper-slide"
                                             v-for="item in activeList"
                                             :key="item.picPath"
+                                            @click="toPage2('/down')"
                                         >
                                             <img :src="item.picPath" alt="" />
                                         </div>
@@ -558,7 +559,7 @@
                             </el-tabs>
                         </div>
                     </div>
-                    <div class="ad-banner-box">
+                    <div class="ad-banner-box" @click="toPage2('/down')">
                         <img :src="advertisement" alt="" />
                     </div>
                     <div class="classify-match-box">
@@ -1822,8 +1823,8 @@ export default {
 .video-head {
     width: 100%;
     height: 666px;
-    /*background-image: url("../../assets/image/bg3.jpg");*/
-    background-image: url('https://1-1305184012.cos.ap-nanjing.myqcloud.com/live/41658984549229.jpg');
+
+    background-image: url('../../assets/image/home/home-banner-bg.png');
     background-size: cover;
     /*background-size: 100% 100%;*/
     background-position: center center;

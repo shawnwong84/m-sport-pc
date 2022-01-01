@@ -46,7 +46,8 @@
                                         : ''
                                 "
                             >
-                                <el-popover placement="bottom" trigger="hover">
+                                直播
+                                <!-- <el-popover placement="bottom" trigger="hover">
                                     <div class="header-live-nav-box">
                                         <div class="classify-list">
                                             <div
@@ -75,7 +76,7 @@
                                             <i class="el-icon-caret-bottom"></i
                                         ></span>
                                     </div>
-                                </el-popover>
+                                </el-popover> -->
                             </div>
 
                             <div

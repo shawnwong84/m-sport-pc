@@ -64,9 +64,9 @@
                             <span>我要开播</span>
                         </div>
                         <div class="live-link">
-                            <span>直播指导</span>
+                            <span @click="toPage('/commonProblem?id=2', true)">直播指导</span>
                             <div class="line"></div>
-                            <span>客服支持</span>
+                            <span @click="toPage('/about/service', true)">客服支持</span>
                         </div>
                     </div>
                 </div>

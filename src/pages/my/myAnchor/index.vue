@@ -43,6 +43,9 @@
                 </div>
             </div>
             <div class="step-content2" v-if="active == 2">
+                <div class="success-live" v-if="alreadyLive">
+                    提示: 恭喜您已经开播了！您还可以在下方修改房间信息
+                </div>
                 <el-form
                     :model="pushParams"
                     ref="userValidateForm"
@@ -394,6 +397,12 @@ export default {
         .step-content2 {
             width: 100%;
             margin-top: 20px;
+            .success-live{
+                font-size: 20px;
+                font-weight: 700;
+                margin-bottom: 15px;
+                color: $primary-color;
+            }
             .card-img {
                 width: 300px;
                 height: 200px;
@@ -411,7 +420,7 @@ export default {
         .next-btn {
             width: 100%;
             @include flexCenter();
-            margin-top: 50px;
+            margin-top: 40px;
         }
     }
 }
