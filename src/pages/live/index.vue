@@ -64,9 +64,13 @@
                             <span>我要开播</span>
                         </div>
                         <div class="live-link">
-                            <span @click="toPage('/commonProblem?id=2', true)">直播指导</span>
+                            <span @click="toPage('/commonProblem?id=2', true)"
+                                >直播指导</span
+                            >
                             <div class="line"></div>
-                            <span @click="toPage('/about/service', true)">客服支持</span>
+                            <span @click="toPage('/about/service', true)"
+                                >客服支持</span
+                            >
                         </div>
                     </div>
                 </div>
@@ -83,7 +87,10 @@
                         />
                         <span>直播</span>
                     </div>
-                    <div class="slide-nav-item">
+                    <div
+                        class="slide-nav-item"
+                        @click="toPage('/my/myAttention')"
+                    >
                         <img
                             src="../../assets/image/live/follow-nav-icon.png"
                             alt=""
@@ -142,7 +149,7 @@ export default {
                     name: '篮球',
                     path: '/live/basketball',
                 },
-                 {
+                {
                     id: 5,
                     name: '其他',
                     path: '/live/otherball',

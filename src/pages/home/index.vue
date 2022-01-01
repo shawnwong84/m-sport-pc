@@ -559,7 +559,7 @@
                             </el-tabs>
                         </div>
                     </div>
-                    <div class="ad-banner-box" @click="toPage2('/down')">
+                    <div class="ad-banner-box" @click="toPage2('/my/myAnchor')">
                         <img :src="advertisement" alt="" />
                     </div>
                     <div class="classify-match-box">

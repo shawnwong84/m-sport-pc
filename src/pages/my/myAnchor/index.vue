@@ -192,6 +192,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
     name: 'myAnchor',
     data() {
@@ -218,7 +219,17 @@ export default {
             alreadyLive: false,
         };
     },
+    created() {
+        if (this.getUserInfo.applying !== 2) {
+            this.$router.replace('/my/myApply');
+        }
+    },
     components: {},
+    computed: {
+        ...mapGetters({
+            getUserInfo: 'getUserInfo',
+        }),
+    },
     watch: {},
     mounted() {
         this.getPushStreamUrl();
@@ -397,7 +408,7 @@ export default {
         .step-content2 {
             width: 100%;
             margin-top: 20px;
-            .success-live{
+            .success-live {
                 font-size: 20px;
                 font-weight: 700;
                 margin-bottom: 15px;

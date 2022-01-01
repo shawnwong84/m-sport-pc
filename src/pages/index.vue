@@ -169,11 +169,7 @@
                             </div>
                             <div
                                 class="fx align-items justify-center live-start"
-                                @click="
-                                    infoData.applying == 2
-                                        ? toPage('myAnchor')
-                                        : toPage('myApply')
-                                "
+                                @click="toPage('myAnchor')"
                             >
                                 <img
                                     src="../assets/image/header-live-icon.png"
