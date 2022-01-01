@@ -147,18 +147,18 @@ export default {
                     _this.$emit('isclose', true);
                 },
                 // // // 收到文本消息
-                // onTextMessage: function (message) {
-                //     this.value = message.data;
-                //     _this.chatContent.push({
-                //         // 把发送者的头像和文本数据push到数组中在页面上展示
-                //         askName: message.ext.user_nick,
-                //         askLevel: message.ext.user_level,
-                //         askContent: message.data,
-                //     });
-                //     if (message.data === '进入直播间') {
-                //         this.getChatMessage();
-                //     }
-                // },
+                onTextMessage: function (message) {
+                    this.value = message.data;
+                    _this.chatContent.push({
+                        // 把发送者的头像和文本数据push到数组中在页面上展示
+                        askName: message.ext.user_nick,
+                        askLevel: message.ext.user_level,
+                        askContent: message.data,
+                    });
+                    if (message.data === '进入直播间') {
+                        this.getChatMessage();
+                    }
+                },
                 onEmojiMessage: function (message) {
                     console.log('onEmojiMessage', message);
                 },
@@ -226,7 +226,6 @@ export default {
                         askContent: msg.value,
                     });
                     _this.contentTxt = '';
-                    _this.showModal = false;
                     // _this.$nextTick(() => {
                     //     _this.$refs.main.scrollTop =
                     //         _this.$refs.content.scrollHeight;
@@ -289,7 +288,7 @@ export default {
                         askContent: msgTxt,
                     });
                     _this.contentTxt = '';
-                    _this.showModal = false;
+                   
                     // _this.$nextTick(() => {
                     //     _this.$refs.main.scrollTop =
                     //         _this.$refs.content.scrollHeight;
