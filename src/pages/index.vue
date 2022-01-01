@@ -335,7 +335,7 @@
                 </div>
             </div>
             <router-view v-if="active" class="index-wrapper"></router-view>
-            <mfooter></mfooter>
+            <mfooter v-if="$route.meta.footShow"></mfooter>
         </div>
     </div>
 </template>
@@ -357,7 +357,6 @@ export default {
         return {
             infoData: {},
             active: true,
-
             isshowRegAndLogin: false,
             name: '',
             token: '',

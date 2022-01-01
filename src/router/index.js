@@ -44,7 +44,7 @@ const router = new Router({
                     component: () => import('@/pages/live/index.vue'),
                     redirect: '/live/allball',
                     meta: {
-                        footShow: true,
+                        footShow: false,
                         requiresAuth: false,
                     },
                     children: [
@@ -54,7 +54,7 @@ const router = new Router({
                             component: () =>
                                 import('@/pages/live/allBall/index.vue'),
                             meta: {
-                                footShow: true,
+                                footShow: false,
                                 requiresAuth: false,
                             },
                         },
@@ -64,7 +64,7 @@ const router = new Router({
                             component: () =>
                                 import('@/pages/live/hotBall/index.vue'),
                             meta: {
-                                footShow: true,
+                                footShow: false,
                                 requiresAuth: false,
                             },
                         },
@@ -74,7 +74,7 @@ const router = new Router({
                             component: () =>
                                 import('@/pages/live/basketBall/index.vue'),
                             meta: {
-                                footShow: true,
+                                footShow: false,
                                 requiresAuth: false,
                             },
                         },
@@ -84,7 +84,7 @@ const router = new Router({
                             component: () =>
                                 import('@/pages/live/footerBall/index.vue'),
                             meta: {
-                                footShow: true,
+                                footShow: false,
                                 requiresAuth: false,
                             },
                         },
@@ -94,7 +94,7 @@ const router = new Router({
                             component: () =>
                                 import('@/pages/live/otherBall/index.vue'),
                             meta: {
-                                footShow: true,
+                                footShow: false,
                                 requiresAuth: false,
                             },
                         },
@@ -104,7 +104,7 @@ const router = new Router({
                             component: () =>
                                 import('@/pages/live/room/index.vue'),
                             meta: {
-                                footShow: true,
+                                footShow: false,
                                 requiresAuth: false,
                             },
                         },
@@ -258,7 +258,7 @@ const router = new Router({
                             component: () =>
                                 import('@/pages/my/myHome/index.vue'),
                             meta: {
-                                footShow: false,
+                                footShow: true,
                                 requiresAuth: true,
                             },
                         },
@@ -268,7 +268,7 @@ const router = new Router({
                             component: () =>
                                 import('@/pages/my/myInfo/index.vue'),
                             meta: {
-                                footShow: false,
+                                footShow: true,
                                 requiresAuth: true,
                             },
                         },
@@ -278,7 +278,7 @@ const router = new Router({
                             component: () =>
                                 import('@/pages/my/myMessage/index.vue'),
                             meta: {
-                                footShow: false,
+                                footShow: true,
                                 requiresAuth: true,
                             },
                         },
@@ -288,7 +288,7 @@ const router = new Router({
                             component: () =>
                                 import('@/pages/my/myAttention/index.vue'),
                             meta: {
-                                footShow: false,
+                                footShow: true,
                                 requiresAuth: true,
                             },
                         },
@@ -298,7 +298,7 @@ const router = new Router({
                             component: () =>
                                 import('@/pages/my/myOrder/index.vue'),
                             meta: {
-                                footShow: false,
+                                footShow: true,
                                 requiresAuth: true,
                             },
                         },
@@ -308,7 +308,7 @@ const router = new Router({
                             component: () =>
                                 import('@/pages/my/myFeedback/index.vue'),
                             meta: {
-                                footShow: false,
+                                footShow: true,
                                 requiresAuth: true,
                             },
                         },
@@ -318,7 +318,7 @@ const router = new Router({
                             component: () =>
                                 import('@/pages/my/myApply/index.vue'),
                             meta: {
-                                footShow: false,
+                                footShow: true,
                                 requiresAuth: true,
                             },
                         },
@@ -328,7 +328,7 @@ const router = new Router({
                             component: () =>
                                 import('@/pages/my/myAnchor/index.vue'),
                             meta: {
-                                footShow: false,
+                                footShow: true,
                                 requiresAuth: true,
                             },
                         },

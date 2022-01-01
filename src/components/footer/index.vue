@@ -23,9 +23,6 @@
                     <router-link to="/about/business" target="_blank">
                         商务合作&nbsp;/
                     </router-link>
-                    <router-link to="/about/opinion" target="_blank">
-                        意见反馈&nbsp;/
-                    </router-link>
                     <router-link to="/about/copyright" target="_blank">
                         版权投诉&nbsp;/
                     </router-link>

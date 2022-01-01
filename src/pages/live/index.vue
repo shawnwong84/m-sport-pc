@@ -187,6 +187,7 @@ export default {
 <style scoped lang="scss">
 .live-box {
     margin-top: 64px;
+    min-height: calc(100vh - 64px) !important;
 
     .live-left {
         position: fixed;
