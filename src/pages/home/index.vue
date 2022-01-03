@@ -1,7 +1,10 @@
 <template>
     <div>
         <div>
-            <div class="video-head">
+            <div
+                class="video-head"
+                :style="{ 'background-image': 'url(' + homeBannerbg + ')' }"
+            >
                 <div class="fx justify-between video-div">
                     <div class="top-video-box">
                         <div class="video-logo">
@@ -741,6 +744,7 @@ export default {
             advertisement: '',
             activeName: '1', //选项卡,
             messageLsit: [],
+            homeBannerbg: '',
         };
     },
     computed: {
@@ -754,6 +758,7 @@ export default {
     mounted() {
         this.getLiveStreamingToPc();
         this.getBannerList1();
+        this.getBannerList2();
         this.getMatch();
         this.getList();
         this.getArticleTopTagList();
@@ -1015,7 +1020,19 @@ export default {
                 this.setPermissionModal(1);
             }
         },
+        getBannerList2() {
+            //广告类型,1-app顶部,2-资讯广告 3.PC首页广告图 4.官方活动广告 5.红榜广告,6.pc首页背景图
+            let param = {
+                adType: 6,
+            };
+            this.$axios('post', '/live/getBannerList', param).then((res) => {
+                if (res.code === 200) {
+                    this.homeBannerbg = res.data[0].picPath;
+                }
+            });
+        },
         getBannerList1() {
+            //广告类型,1-app顶部,2-资讯广告 3.PC首页广告图 4.官方活动广告 5.红榜广告,6.pc首页背景图
             let param = {
                 adType: 3,
             };
@@ -1026,6 +1043,7 @@ export default {
             });
         },
         getBannerList() {
+            //广告类型,1-app顶部,2-资讯广告 3.PC首页广告图 4.官方活动广告 5.红榜广告,6.pc首页背景图
             let param = {
                 adType: 4,
             };
@@ -1824,7 +1842,7 @@ export default {
     width: 100%;
     height: 666px;
 
-    background-image: url('../../assets/image/home/home-banner-bg.png');
+    // background-image: url('../../assets/image/home/home-banner-bg.png');
     background-size: cover;
     /*background-size: 100% 100%;*/
     background-position: center center;
