@@ -34,6 +34,26 @@
                         导打赏、私下交易等行为，以防人身或财产损失。
                     </p>
                 </div>
+                <div class="copy-contact">
+                    <div class="copy-item" v-if="roomInfo.qqNum && roomInfo.qqNum.trim()" @click="copyText(roomInfo.qqNum)">
+                        <img
+                            src="../../../../assets/image/live/qq-num.png"
+                            alt=""
+                        />
+                    </div>
+                    <div class="copy-item"  v-if="roomInfo.wxNum && roomInfo.wxNum.trim()" @click="copyText(roomInfo.wxNum)">
+                        <img
+                            src="../../../../assets/image/live/wx-num.png"
+                            alt=""
+                        />
+                    </div>
+                    <div class="copy-item" v-if="roomInfo.qqGroupNum && roomInfo.qqGroupNum.trim()" @click="copyText(roomInfo.qqGroupNum)">
+                        <img
+                            src="../../../../assets/image/live/qq2-num.png"
+                            alt=""
+                        />
+                    </div>
+                </div>
             </div>
             <div class="chat-content">
                 <div class="msg-list">
@@ -86,6 +106,7 @@
 
 <script>
 import MarqueeText from 'vue-marquee-text-component';
+import copy from 'copy-to-clipboard';
 import { mapMutations } from 'vuex';
 import { VEmojiPicker } from 'v-emoji-picker';
 import { Cookie } from '../../../../api/cookie';
@@ -128,6 +149,13 @@ export default {
         //登录
         userLogin() {
             this.setPermissionModal(1);
+        },
+        copyText(text){
+            this.$message({
+                type:'success',
+                message:'复制成功'
+            })
+            copy(text)
         },
 
         // 登录账号
@@ -288,7 +316,7 @@ export default {
                         askContent: msgTxt,
                     });
                     _this.contentTxt = '';
-                   
+
                     // _this.$nextTick(() => {
                     //     _this.$refs.main.scrollTop =
                     //         _this.$refs.content.scrollHeight;
@@ -376,6 +404,19 @@ export default {
         }
         .system-prompt {
             padding-top: 10px;
+            position: relative;
+            .copy-contact {
+                position: absolute;
+                right: 0;
+                top: 90px;
+                .copy-item {
+                    width: 50px;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
             .prompt {
                 width: 100%;
                 @include flexStartCenterWrap();
