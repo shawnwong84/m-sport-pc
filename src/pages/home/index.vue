@@ -395,13 +395,6 @@
                                             >
                                                 <div
                                                     class="anchor-avatar"
-                                                    @click="
-                                                        toPage3(
-                                                            'expertsDeatil',
-                                                            item.anchorId,
-                                                            1,
-                                                        )
-                                                    "
                                                 >
                                                     <img
                                                         :src="item.anchorIcon"
@@ -562,7 +555,7 @@
                             </el-tabs>
                         </div>
                     </div>
-                    <div class="ad-banner-box" @click="toPage2('/my/myAnchor')">
+                    <div class="ad-banner-box" @click="toPage2('/criterion/detail/100')">
                         <img :src="advertisement" alt="" />
                     </div>
                     <div class="classify-match-box">

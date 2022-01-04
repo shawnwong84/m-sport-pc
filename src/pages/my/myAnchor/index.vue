@@ -33,10 +33,26 @@
                     <p>
                         {{ pushData.serverUrl }}
                     </p>
+                    <el-button
+                        :style="{ marginLeft: '15px' }"
+                        size="small"
+                        @click="copyText(pushData.serverUrl)"
+                        type="primary"
+                    >
+                        复制</el-button
+                    >
                 </div>
                 <div class="cell-item">
                     <span>串流密钥：</span>
                     <p>{{ pushData.userPushUrl }}</p>
+                    <el-button
+                        :style="{ marginLeft: '15px' }"
+                        size="small"
+                        @click="copyText(pushData.userPushUrl)"
+                        type="primary"
+                    >
+                        复制</el-button
+                    >
                 </div>
                 <div class="hint">
                     <img src="../../../assets/image/smallf0759989.png" alt="" />
@@ -193,6 +209,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import copy from 'copy-to-clipboard';
 export default {
     name: 'myAnchor',
     data() {
@@ -238,6 +255,13 @@ export default {
         this.getRoomInfoByUser();
     },
     methods: {
+        copyText(text) {
+            this.$message({
+                type: 'success',
+                message: '复制成功',
+            });
+            copy(text);
+        },
         next() {
             this.active++;
             if (this.active > 3) {

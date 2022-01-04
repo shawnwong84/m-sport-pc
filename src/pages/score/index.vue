@@ -25,7 +25,10 @@
                         赛程
                     </div>
                 </div>
-                <div class="mt-20">
+                <div
+                    class="mt-20"
+                    @click="toPage2(`/criterion/detail/100`)"
+                >
                     <img
                         src="../../assets/image/score-banner.png"
                         width="100%"
@@ -570,6 +573,12 @@ export default {
                 window.open(routeData.href, '_blank');
                 // this.$router.replace({name: 'basketBallDeatil', query: {id: id}})
             }
+        },
+        toPage2(path) {
+            let routeData = this.$router.resolve({
+                path: path,
+            });
+            window.open(routeData.href, '_blank');
         },
 
         getMatch(num) {

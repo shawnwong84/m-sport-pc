@@ -611,6 +611,13 @@ export const navData = {
                 </p>`,
                 },
             },
+            {
+                id: 100,
+                content: {
+                    title: 'M体育官方主播招募令',
+                    des: `<p>M体育邀你做主播</p> <p><b>联系QQ：3322129855</b> </p>`,
+                },
+            },
         ],
     },
     mutations: {
