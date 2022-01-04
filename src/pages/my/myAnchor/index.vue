@@ -183,6 +183,7 @@
                             <el-button size="small" type="primary" v-else
                                 >点击上传</el-button
                             >
+                            <span class="img-size">图片尺寸不要超过：392*242</span>
                         </el-upload>
                     </el-form-item>
                     <el-form-item>
@@ -446,6 +447,12 @@ export default {
                     height: 100%;
                     object-fit: cover;
                 }
+            }
+            .img-size {
+                margin-left: 20px;
+                font-size: 14px;
+                color: $primary-color;
+                display: inline;
             }
         }
         .step-content3 {
