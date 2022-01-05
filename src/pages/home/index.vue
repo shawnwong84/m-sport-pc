@@ -393,9 +393,7 @@
                                                 v-for="item in hotAnchorList"
                                                 :key="item.anchorId"
                                             >
-                                                <div
-                                                    class="anchor-avatar"
-                                                >
+                                                <div class="anchor-avatar">
                                                     <img
                                                         :src="item.anchorIcon"
                                                         alt=""
@@ -484,6 +482,12 @@
                                     >活动</el-tab-pane
                                 > -->
                                 <el-tab-pane label="公告" name="3">
+                                    <div class="announcement-banner" @click="toPage2('/about/service')">
+                                        <img
+                                            src="../../assets/image/home/service-banner.png"
+                                            alt=""
+                                        />
+                                    </div>
                                     <div
                                         class="announcement-list"
                                         v-for="item in getNoticeList"
@@ -507,6 +511,12 @@
                                     </div>
                                 </el-tab-pane>
                                 <el-tab-pane label="规范" name="4">
+                                    <div class="announcement-banner" @click="toPage2('/criterion/detail/5')">
+                                        <img
+                                            src="../../assets/image/home/norm-banner.png"
+                                            alt=""
+                                        />
+                                    </div>
                                     <div
                                         class="announcement-list"
                                         v-for="item in getNormList"
@@ -530,6 +540,12 @@
                                     </div>
                                 </el-tab-pane>
                                 <el-tab-pane label="帮助" name="5">
+                                    <div class="announcement-banner" @click="toPage2('/course?id=1')">
+                                        <img
+                                            src="../../assets/image/home/help-banner.png"
+                                            alt=""
+                                        />
+                                    </div>
                                     <div
                                         class="announcement-list"
                                         v-for="item in getHelpList"
@@ -555,7 +571,10 @@
                             </el-tabs>
                         </div>
                     </div>
-                    <div class="ad-banner-box" @click="toPage2('/criterion/detail/100')">
+                    <div
+                        class="ad-banner-box"
+                        @click="toPage2('/criterion/detail/100')"
+                    >
                         <img :src="advertisement" alt="" />
                     </div>
                     <div class="classify-match-box">
@@ -1549,6 +1568,19 @@ export default {
                             text-overflow: ellipsis;
                         }
                     }
+                }
+            }
+
+            .announcement-banner {
+                width: 100%;
+                height: 80px;
+                cursor: pointer;
+                margin-bottom: 14px;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 8px;
                 }
             }
 
